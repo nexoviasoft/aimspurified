@@ -49,15 +49,15 @@ interface TrackedOrder {
 const getStatusMessage = (status: string) => {
   const s = status.toLowerCase();
   const map: Record<string, string> = {
-    pending: "আপনার অর্ডার গ্রহণ করা হয়েছে এবং নিশ্চিতকরণের অপেক্ষায় আছে।",
-    processing: "আপনার অর্ডার শিপমেন্টের জন্য প্রস্তুত করা হচ্ছে।",
-    paid: "পেমেন্ট সম্পন্ন। আপনার অর্ডার প্রসেস করা হচ্ছে।",
-    shipped: "আপনার অর্ডার শিপ করা হয়েছে এবং পথে রয়েছে।",
-    delivered: "আপনার অর্ডার সফলভাবে ডেলিভারি হয়েছে।",
-    cancelled: "এই অর্ডারটি বাতিল করা হয়েছে।",
-    refunded: "এই অর্ডারটি রিফান্ড করা হয়েছে।",
+    pending: "Your order has been received and is awaiting confirmation.",
+    processing: "Your order is being prepared for shipment.",
+    paid: "Payment complete. Your order is being processed.",
+    shipped: "Your order has been shipped and is on the way.",
+    delivered: "Your order has been successfully delivered.",
+    cancelled: "This order has been cancelled.",
+    refunded: "This order has been refunded.",
   };
-  return map[s] ?? "আপনার অর্ডারের স্ট্যাটাস আপডেট করা হচ্ছে।";
+  return map[s] ?? "Your order status is being updated.";
 };
 
 const getStatusConfig = (status: string) => {
@@ -66,49 +66,49 @@ const getStatusConfig = (status: string) => {
       return {
         color: "bg-emerald-100 text-emerald-800 border-emerald-200",
         icon: FiCheckCircle,
-        label: "ডেলিভারড",
+        label: "Delivered",
       };
     case "pending":
       return {
         color: "bg-amber-100 text-amber-800 border-amber-200",
         icon: FiClock,
-        label: "পেন্ডিং",
+        label: "Pending",
       };
     case "cancelled":
       return {
         color: "bg-rose-100 text-rose-800 border-rose-200",
         icon: FiXCircle,
-        label: "বাতিল",
+        label: "Cancelled",
       };
     case "shipped":
       return {
         color: "bg-blue-100 text-blue-800 border-blue-200",
         icon: FiTruck,
-        label: "শিপড",
+        label: "Shipped",
       };
     case "processing":
       return {
         color: "bg-violet-100 text-violet-800 border-violet-200",
         icon: FiPackage,
-        label: "প্রসেসিং",
+        label: "Processing",
       };
     case "paid":
       return {
         color: "bg-teal-100 text-teal-800 border-teal-200",
         icon: FiCreditCard,
-        label: "পেইড",
+        label: "Paid",
       };
     case "returned":
       return {
         color: "bg-orange-100 text-orange-800 border-orange-200",
         icon: FiRefreshCw,
-        label: "ফেরত",
+        label: "Returned",
       };
     case "refunded":
       return {
         color: "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-200",
         icon: FiDollarSign,
-        label: "রিফান্ডেড",
+        label: "Refunded",
       };
     default:
       return {
@@ -169,7 +169,7 @@ function OrderTrackingContent() {
           ),
         });
       } else {
-        setError("অর্ডার খুঁজে পাওয়া যায়নি। ট্র্যাকিং আইডি আবার চেক করুন।");
+        setError("Order not found. Please check your tracking ID again.");
       }
     } catch (err: unknown) {
       const axiosError = err as {
@@ -178,7 +178,7 @@ function OrderTrackingContent() {
       const message =
         axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
-        "অর্ডার খুঁজে পাওয়া যায়নি। ট্র্যাকিং আইডি আবার চেক করুন।";
+        "Order not found. Please check your tracking ID again.";
       setError(message);
     } finally {
       setLoading(false);
@@ -207,11 +207,10 @@ function OrderTrackingContent() {
         <ScrollAnimation>
           <div className="text-center space-y-4">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-              অর্ডার ট্র্যাকিং
+              Order Tracking
             </h1>
             <p className="text-gray-600 text-base sm:text-lg font-medium max-w-2xl mx-auto">
-              আপনার অর্ডারের বর্তমান অবস্থা তাৎক্ষণিকভাবে জানতে ট্র্যাকিং আইডি
-              ব্যবহার করুন
+              Use the tracking ID to know the current status of your order instantly
             </p>
           </div>
         </ScrollAnimation>
@@ -231,7 +230,7 @@ function OrderTrackingContent() {
                   type="text"
                   value={trackingId}
                   onChange={(e) => setTrackingId(e.target.value)}
-                  placeholder="ট্র্যাকিং আইডি লিখুন (যেমন: TRK-123456 বা 123123)"
+                  placeholder="Enter tracking ID (e.g. TRK-123456 or 123123)"
                   className="block w-full pl-14 pr-5 py-4 bg-gray-50/70 border border-gray-200 rounded-2xl text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-primary/10 focus:border-primary/30 focus:bg-white transition-all duration-300 text-base font-medium shadow-inner"
                 />
               </div>
@@ -243,10 +242,10 @@ function OrderTrackingContent() {
                 {loading ? (
                   <span className="flex items-center gap-3">
                     <span className="w-5 h-5 border-4 border-white/30 border-t-white rounded-full animate-spin" />
-                    খুঁজছি...
+                    Searching...
                   </span>
                 ) : (
-                  "ট্র্যাক করুন"
+                  "Track"
                 )}
               </button>
             </form>
@@ -273,7 +272,7 @@ function OrderTrackingContent() {
                     <div>
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-xs font-extrabold text-gray-500 uppercase tracking-widest">
-                          অর্ডার আইডি
+                          Order ID
                         </span>
                         <span className="px-3 py-1 rounded-full bg-primary text-white text-sm font-bold tracking-wide shadow">
                           #{order.id}
@@ -317,12 +316,12 @@ function OrderTrackingContent() {
                       <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow">
                         <FiPackage className="w-5 h-5 text-white" />
                       </div>
-                      শিপিং ও পেমেন্ট
+                      Shipping & Payment
                     </h3>
                     <div className="space-y-5 text-sm">
                       <div>
                         <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
-                          পেমেন্ট মেথড
+                          Payment Method
                         </p>
                         <p className="font-semibold text-gray-900">
                           {order.paymentMethod}
@@ -331,7 +330,7 @@ function OrderTrackingContent() {
                       {order.shippingProvider && (
                         <div>
                           <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
-                            কুরিয়ার
+                            Courier
                           </p>
                           <p className="font-semibold text-gray-900">
                             {order.shippingProvider}
@@ -340,7 +339,7 @@ function OrderTrackingContent() {
                       )}
                       <div>
                         <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
-                          ট্র্যাকিং আইডি
+                          Tracking ID
                         </p>
                         <div className="flex items-center gap-3 mt-1.5">
                           <span className="font-mono font-bold text-gray-900 bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-sm text-base">
@@ -364,7 +363,7 @@ function OrderTrackingContent() {
                 <div className="bg-white rounded-xl shadow-md border border-gray-100/60 overflow-hidden">
                   <div className="p-6 sm:p-8 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
                     <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900">
-                      অর্ডারের যাত্রাপথ
+                      Order Journey
                     </h3>
                   </div>
 
@@ -424,7 +423,7 @@ export default function OrderTrackingPage() {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-            <p className="text-lg font-medium text-gray-600">লোড হচ্ছে...</p>
+            <p className="text-lg font-medium text-gray-600">Loading...</p>
           </div>
         </div>
       }

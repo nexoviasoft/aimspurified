@@ -17,7 +17,7 @@ const TrendingProducts = async () => {
   return (
     <section className=" max-w-7xl mx-auto px-5 md:pt-10 pt-5 ">
       <h1 className=" sm:text-2xl text-xl font-bold text-primary">
-        ট্রেন্ডিং পণ্য
+        Trending Products
       </h1>
       <div>
         <TrendingProductsList products={list} />

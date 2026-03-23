@@ -15,7 +15,7 @@ interface CouponCodeProps {
   isProductCheckout?: boolean;
 }
 
-const COUPON_INSTRUCTION_TEXT = "নিচের কুপনে ক্লিক করলেই কুপনটি অটো অ্যাপ্লাই হবে।";
+const COUPON_INSTRUCTION_TEXT = "Click on the coupon below to apply it automatically.";
 
 const CouponCode = ({
   promoCode,
@@ -56,7 +56,7 @@ const CouponCode = ({
       )}
 
       {availablePromosLoading && (
-        <p className="text-xs text-primary">Available coupons লোড হচ্ছে...</p>
+        <p className="text-xs text-primary">Loading available coupons...</p>
       )}
 
       {hasAvailablePromos && !availablePromosLoading && (
@@ -77,8 +77,8 @@ const CouponCode = ({
                 <span className="font-semibold">{promo.code}</span>
                 <span className="ml-1 text-[11px] text-gray-600">
                   {promo.discountType === "percentage"
-                    ? `${promo.discountValue}% ছাড়`
-                    : `${promo.discountValue}৳ ছাড়`}
+                    ? `${promo.discountValue}% Off`
+                    : `${promo.discountValue}৳ Off`}
                 </span>
               </button>
             );
@@ -96,7 +96,7 @@ const CouponCode = ({
           >
             <span className="font-semibold">{fallbackCode}</span>
             <span className="ml-1 text-[11px] text-gray-600">
-              {loading ? "Applying..." : "ক্লিক করে অ্যাপ্লাই করুন"}
+              {loading ? "Applying..." : "Click to apply"}
             </span>
           </button>
         </div>

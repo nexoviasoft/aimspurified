@@ -28,33 +28,33 @@ import ScrollAnimation from "../../components/shared/ScrollAnimation";
 const contactReasons = [
   {
     id: "product",
-    label: "পণ্য সংক্রান্ত",
+    label: "Product Related",
     icon: FiBox,
-    description: "সাইজ, কালার বা স্টক",
+    description: "Size, Color or Stock",
   },
   {
     id: "order",
-    label: "অর্ডার সংক্রান্ত",
+    label: "Order Related",
     icon: FiShoppingBag,
-    description: "অর্ডার স্ট্যাটাস বা পরিবর্তন",
+    description: "Order Status or Changes",
   },
   {
     id: "delivery",
-    label: "ডেলিভারি সংক্রান্ত",
+    label: "Delivery Related",
     icon: FiTruck,
-    description: "ডেলিভারি সময় বা লোকেশন",
+    description: "Delivery Time or Location",
   },
   {
     id: "refund",
-    label: "রিটার্ন/রিফান্ড",
+    label: "Return/Refund",
     icon: FiRefreshCw,
-    description: "পণ্য ফেরত বা টাকা ফেরত",
+    description: "Product Return or Refund",
   },
   {
     id: "other",
-    label: "অন্যান্য",
+    label: "Other",
     icon: FiHelpCircle,
-    description: "অন্য কোন বিষয়",
+    description: "Any other subject",
   },
 ];
 
@@ -160,16 +160,16 @@ const ContactUs = () => {
         <div className="text-center mb-16 md:mb-20 animate-fade-in">
           <div className="inline-block mb-6">
             <span className="text-xs font-bold tracking-widest text-primary px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
-              আমাদের সাথে যোগাযোগ
+              Contact Us
             </span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 leading-tight text-gray-900">
-            {`চলুন কথা বলি`}
+            {`Let's Talk`}
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            {` আমাদের পণ্য বা সেবাসমূহ নিয়ে কোনো প্রশ্ন থাকলে নির্দ্বিধায় বার্তা দিন। আমরা দ্রুত উত্তর দেওয়ার চেষ্টা করি।`}
+            {`Feel free to message us if you have any questions about our products or services. We try to reply quickly.`}
           </p>
         </div>
 
@@ -177,29 +177,29 @@ const ContactUs = () => {
           {[
             {
               icon: FiMail,
-              title: "ইমেইল",
+              title: "Email",
               content: companyInfo?.email || "skshobuj9988@gmail.com",
-              description: "সাধারণত ২৪ ঘণ্টার মধ্যে উত্তর",
+              description: "Usually replies within 24 hours",
             },
             {
               icon: FiPhone,
-              title: "ফোন",
-              content: companyInfo?.phone || "(+৮৮) ০১৭৭৪৬১৭৪৫২",
-              description: "শনিবার থেকে বৃহস্পতিবার, সকাল ৯টা–সন্ধ্যা ৬টা",
+              title: "Phone",
+              content: companyInfo?.phone || "(+88) 01774617452",
+              description: "Saturday to Thursday, 9 AM to 6 PM",
             },
             {
               icon: FiMapPin,
-              title: "ঠিকানা",
+              title: "Address",
               content:
                 companyInfo?.branchLocation ||
-                "স্টেশন রোড, শাপলা চত্তর, রংপুর।",
-              description: "শোরুম এবং অফিস",
+                "Station Road, Shapla Chattar, Rangpur.",
+              description: "Showroom and Office",
             },
             {
               icon: FaWhatsapp,
-              title: "হোয়াটসঅ্যাপ",
-              content: "চ্যাট করুন",
-              description: "তাৎক্ষণিক কথোপকথন",
+              title: "WhatsApp",
+              content: "Chat Now",
+              description: "Instant messaging",
               href: (() => {
                 const raw = (companyInfo?.phone || "01774617452").replace(
                   /[^\d]/g,
@@ -258,7 +258,7 @@ const ContactUs = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    পূর্ণ নাম
+                    Full Name
                   </label>
                   <input
                     type="text"
@@ -270,7 +270,7 @@ const ContactUs = () => {
                     onBlur={() => setFocusedField(null)}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
-                    placeholder="আপনার নাম"
+                    placeholder="Your Name"
                   />
                 </div>
 
@@ -280,7 +280,7 @@ const ContactUs = () => {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    ইমেইল
+                    Email
                   </label>
                   <input
                     type="email"
@@ -302,7 +302,7 @@ const ContactUs = () => {
                     htmlFor="subject"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    বিষয়
+                    Subject
                   </label>
                   <input
                     type="text"
@@ -314,12 +314,12 @@ const ContactUs = () => {
                     onBlur={() => setFocusedField(null)}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
-                    placeholder="কিসের বিষয়ে?"
+                    placeholder="Subject of inquiry?"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-4">
-                    যোগাযোগের কারণ
+                    Reason for contact
                   </label>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                     {contactReasons.map((reason) => {
@@ -384,7 +384,7 @@ const ContactUs = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    বার্তা
+                    Message
                   </label>
                   <textarea
                     id="message"
@@ -396,7 +396,7 @@ const ContactUs = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white resize-none"
-                    placeholder="আরও বিস্তারিত লিখুন..."
+                    placeholder="Write your message here..."
                   />
                 </div>
 
@@ -409,12 +409,12 @@ const ContactUs = () => {
                   {formStatus.type === "loading" ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      পাঠানো হচ্ছে...
+                      Sending...
                     </>
                   ) : (
                     <>
                       <FiSend size={18} />
-                      বার্তা পাঠান
+                      Send Message
                     </>
                   )}
                 </button>
@@ -428,8 +428,7 @@ const ContactUs = () => {
                     />
                     <div>
                       <p className="font-medium text-green-900">
-                        বার্তা সফলভাবে পাঠানো হয়েছে! খুব শিগগিরই যোগাযোগ করা
-                        হবে।
+                        Message sent successfully! We will contact you soon.
                       </p>
                     </div>
                   </div>
@@ -438,7 +437,7 @@ const ContactUs = () => {
                 {formStatus.type === "error" && (
                   <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                     <p className="font-medium text-red-800">
-                      কোনো ত্রুটি ঘটেছে। অনুগ্রহ করে আবার চেষ্টা করুন।
+                      An error occurred. Please try again.
                     </p>
                   </div>
                 )}
@@ -456,7 +455,7 @@ const ContactUs = () => {
 
                 <div className="relative z-10">
                   <h2 className="text-3xl sm:text-4xl font-black mb-8 leading-tight tracking-tight">
-                    {`আমরা সবসময় পাশে`}
+                    {`We Are Always Here`}
                   </h2>
 
                   <div className="space-y-10 mb-12">
@@ -465,10 +464,9 @@ const ContactUs = () => {
                         <FiCheckCircle size={24} />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold mb-2">দ্রুত উত্তর</h3>
+                        <h3 className="text-xl font-bold mb-2">Fast Response</h3>
                         <p className="text-white/70 leading-relaxed">
-                          সাধারণত ২৪ ঘণ্টার মধ্যে অধিকাংশ প্রশ্নের উত্তর দেওয়া
-                          হয়
+                          Most questions are answered within 24 hours
                         </p>
                       </div>
                     </div>
@@ -479,10 +477,10 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold mb-2">
-                          এক্সপার্ট সাপোর্ট
+                          Expert Support
                         </h3>
                         <p className="text-white/70 leading-relaxed">
-                          বিশেষজ্ঞ টিম সাহায্য করতে সদা প্রস্তুত
+                          Our expert team is always ready to help
                         </p>
                       </div>
                     </div>
@@ -493,11 +491,10 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold mb-2">
-                          বহুমাত্রিক যোগাযোগ
+                          Multi-channel Contact
                         </h3>
                         <p className="text-white/70 leading-relaxed">
-                          ইমেইল, ফোন বা কন্টাক্ট ফর্ম— যেকোনো মাধ্যমে যোগাযোগ
-                          করুন
+                          Reach out via email, phone, or contact form
                         </p>
                       </div>
                     </div>
@@ -505,8 +502,7 @@ const ContactUs = () => {
 
                   <div className="pt-8 border-t border-white/10">
                     <p className="text-sm text-white/60 mb-6">
-                      শনিবার–বৃহস্পতিবার সকাল ৯টা থেকে সন্ধ্যা ৬টা পর্যন্ত
-                      সাপোর্ট খোলা থাকে। জরুরি প্রয়োজনে ফোন করুন।
+                      Support is available Saturday–Thursday from 9 AM to 6 PM. For urgent queries, please call.
                     </p>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                       <a
@@ -521,7 +517,7 @@ const ContactUs = () => {
                         className="group flex items-center gap-3 bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95"
                       >
                         <FaWhatsapp size={20} />
-                        <span>চ্যাট করুন</span>
+                        <span>Chat Now</span>
                       </a>
                     </div>
                   </div>

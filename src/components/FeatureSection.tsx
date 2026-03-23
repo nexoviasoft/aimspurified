@@ -10,27 +10,27 @@ import { RiShieldCheckFill } from "react-icons/ri";
 const items = [
   {
     id: 1,
-    title: "অনলাইন সাপোর্ট",
+    title: "Online Support",
     icon: <FaHandshake />,
   },
   {
     id: 2,
-    title: "অফিসিয়াল পণ্য",
+    title: "Official Products",
     icon: <FaGift />,
   },
   {
     id: 3,
-    title: "দ্রুততম ডেলিভারি",
+    title: "Fastest Delivery",
     icon: <FaTruckFast />,
   },
   {
     id: 4,
-    title: "নিরাপদ অর্থপ্রদান",
+    title: "Secure Payment",
     icon: <RiShieldCheckFill />,
   },
   {
     id: 5,
-    title: "প্রকৃত পণ্য",
+    title: "Genuine Products",
     icon: <FaCertificate />,
   },
   {

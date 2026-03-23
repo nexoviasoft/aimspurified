@@ -75,15 +75,15 @@ const getStatusColor = (status: string) => {
 const getStatusMessage = (status: string) => {
   const s = status.toLowerCase();
   const map: Record<string, string> = {
-    pending: "আপনার অর্ডার গ্রহণ করা হয়েছে এবং নিশ্চিতকরণের অপেক্ষায় আছে।",
-    processing: "আপনার অর্ডার শিপমেন্টের জন্য প্রস্তুত করা হচ্ছে।",
-    paid: "পেমেন্ট সম্পন্ন। আপনার অর্ডার প্রসেস করা হচ্ছে।",
-    shipped: "আপনার অর্ডার শিপ করা হয়েছে এবং পথে রয়েছে।",
-    delivered: "আপনার অর্ডার সফলভাবে ডেলিভারি হয়েছে।",
-    cancelled: "এই অর্ডারটি বাতিল করা হয়েছে।",
-    refunded: "এই অর্ডারটি রিফান্ড করা হয়েছে।",
+    pending: "Your order has been received and is waiting for confirmation.",
+    processing: "Your order is being prepared for shipment.",
+    paid: "Payment completed. Your order is being processed.",
+    shipped: "Your order has been shipped and is on the way.",
+    delivered: "Your order has been successfully delivered.",
+    cancelled: "This order has been cancelled.",
+    refunded: "This order has been refunded.",
   };
-  return map[s] ?? "আপনার অর্ডারের স্ট্যাটাস আপডেট করা হচ্ছে।";
+  return map[s] ?? "Your order status is being updated.";
 };
 
 const formatDate = (dateString: string) => {
@@ -173,7 +173,7 @@ const Orders = () => {
           headers: getApiHeaders(userSession?.accessToken),
         },
       );
-      toast.success("অর্ডার সফলভাবে বাতিল হয়েছে!");
+      toast.success("Order successfully cancelled!");
       fetchOrders(); // Refresh orders list
     } catch (error: unknown) {
       console.error("Error cancelling order:", error);
@@ -183,7 +183,7 @@ const Orders = () => {
       const errorMessage =
         axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
-        "অর্ডার বাতিল করা যায়নি। আবার চেষ্টা করুন।";
+        "Failed to cancel order. Try again.";
       toast.error(errorMessage);
     } finally {
       setCancellingOrderId(null);
@@ -221,7 +221,7 @@ const Orders = () => {
           status: "error",
           message:
             (error as { response?: { data?: { message?: string } } })?.response
-              ?.data?.message || "ট্র্যাকিং ডেটা লোড করা যায়নি।",
+              ?.data?.message || "Failed to load tracking data.",
         },
       }));
       setTrackingExpandedOrderId(order.id);
@@ -256,7 +256,7 @@ const Orders = () => {
         });
       } else {
         setTrackingError(
-          "অর্ডার খুঁজে পাওয়া যায়নি। ট্র্যাকিং আইডি আবার চেক করুন।",
+          "Order not found. Please check the tracking ID again.",
         );
       }
     } catch (error: unknown) {
@@ -267,7 +267,7 @@ const Orders = () => {
       const errorMessage =
         axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
-        "অর্ডার খুঁজে পাওয়া যায়নি। ট্র্যাকিং আইডি আবার চেক করুন।";
+        "Order not found. Please check the tracking ID again.";
       setTrackingError(errorMessage);
     } finally {
       setTrackingLoading(false);
@@ -276,7 +276,7 @@ const Orders = () => {
 
   if (loading) {
     return (
-      <ThemeLoader message="আপনার সাম্প্রতিক অর্ডারগুলো লোড হচ্ছে, একটু অপেক্ষা করুন।" />
+      <ThemeLoader message="Loading your recent orders, please wait." />
     );
   }
 
@@ -287,35 +287,33 @@ const Orders = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="space-y-1.5">
               <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
-                আমার অ্যাকাউন্ট
+                My Account
               </p>
-              <h2 className="text-xl md:text-2xl font-semibold">আমার অর্ডার</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">My Orders</h2>
               <p className="text-xs sm:text-sm text-white/90 max-w-md">
-                আপনি এখনও কোনো অর্ডার করেননি। প্রথম অর্ডারের সাথে প্রিমিয়াম
-                অভিজ্ঞতা শুরু করুন।
+                You haven't placed any orders yet. Start your premium experience with your first order.
               </p>
             </div>
             <div className="flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs sm:text-sm">
               <FiPackage className="text-white/90" />
-              <span>অর্ডার হিস্টোরি এখানে দেখা যাবে</span>
+              <span>Order history will be shown here</span>
             </div>
           </div>
         </div>
         <div className="flex items-center justify-center min-h-[220px]">
           <div className="max-w-md w-full text-center space-y-4 rounded-2xl border border-dashed border-gray-300 bg-white/70 px-6 py-8">
             <p className="text-sm font-semibold text-gray-900">
-              বর্তমানে কোনো অর্ডার পাওয়া যায়নি
+              No orders found currently
             </p>
             <p className="text-sm text-gray-600">
-              শপ থেকে আপনার পছন্দের পণ্য নির্বাচন করে এখনই প্রথম অর্ডার করে
-              ফেলুন।
+              Select your favorite products from the shop and place your first order now.
             </p>
             <div className="flex justify-center">
               <Link
                 href="/products"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary/90"
               >
-                শপে যান
+                Go to Shop
               </Link>
             </div>
           </div>
@@ -331,25 +329,24 @@ const Orders = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="space-y-1.5">
               <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
-                আমার অ্যাকাউন্ট
+                My Account
               </p>
-              <h2 className="text-xl md:text-2xl font-semibold">আমার অর্ডার</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">My Orders</h2>
               <p className="text-xs sm:text-sm text-white/90 max-w-md">
-                আপনার সব অর্ডারের স্ট্যাটাস, পেমেন্ট এবং পণ্য তালিকা প্রিমিয়াম
-                ভিউতে দেখুন।
+                View the status, payment, and product list of all your orders in a premium view.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2 w-full sm:w-auto">
               <div className="rounded-xl bg-white/10 px-3 py-2 flex items-center gap-2">
                 <FiPackage className="text-white/90" />
                 <span className="text-[11px] font-medium">
-                  মোট অর্ডার {orders.length}
+                  Total Orders {orders.length}
                 </span>
               </div>
               <div className="rounded-xl bg-white/10 px-3 py-2 flex items-center gap-2">
                 <FiTruck className="text-white/90" />
                 <span className="text-[11px] font-medium">
-                  ট্র্যাক করুন ডেলিভারি স্ট্যাটাস
+                  Track Delivery Status
                 </span>
               </div>
             </div>
@@ -363,7 +360,7 @@ const Orders = () => {
               type="text"
               value={trackingId}
               onChange={(e) => setTrackingId(e.target.value)}
-              placeholder="ট্র্যাকিং আইডি লিখুন"
+              placeholder="Enter Tracking ID"
               className="w-full rounded-full border border-gray-300 bg-white/90 px-4 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />
             <button
@@ -371,7 +368,7 @@ const Orders = () => {
               disabled={trackingLoading || !trackingId.trim()}
               className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-primary hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
             >
-              {trackingLoading ? "ট্র্যাক করা হচ্ছে..." : "অর্ডার ট্র্যাক করুন"}
+              {trackingLoading ? "Tracking..." : "Track Order"}
             </button>
           </form>
 
@@ -420,7 +417,7 @@ const Orders = () => {
                 trackingResult.statusHistory.length > 0 && (
                   <div className="mt-2 border-t border-gray-200/30 pt-2">
                     <p className="text-[10px] font-semibold text-white/90 mb-1">
-                      স্ট্যাটাস হিস্টোরি
+                      Status History
                     </p>
                     <ul className="space-y-1">
                       {trackingResult.statusHistory.map((entry) => (
@@ -449,10 +446,10 @@ const Orders = () => {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                 <div className="space-y-1">
                   <p className="text-xs font-semibold tracking-wide text-gray-500">
-                    অর্ডার আইডি #{order.id}
+                    Order ID #{order.id}
                   </p>
                   <p className="text-sm text-gray-700">
-                    তারিখ: {formatDate(order.createdAt)}
+                    Date: {formatDate(order.createdAt)}
                   </p>
                 </div>
                 <span
@@ -476,7 +473,7 @@ const Orders = () => {
                           {item.product.name}
                         </p>
                         <p className="text-xs sm:text-sm text-gray-600">
-                          পরিমাণ: {item.quantity} ×{" "}
+                          Qty: {item.quantity} ×{" "}
                           <span className="inline-flex items-center">
                             <TbCurrencyTaka size={12} />
                             {item.unitPrice}
@@ -496,11 +493,11 @@ const Orders = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
                   <div className="space-y-1">
                     <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                      পেমেন্ট: {order.paymentMethod}
+                      Payment: {order.paymentMethod}
                     </p>
                     {order.customerAddress && (
                       <p className="text-xs sm:text-sm text-gray-600">
-                        ঠিকানা: {order.customerAddress}
+                        Address: {order.customerAddress}
                       </p>
                     )}
                   </div>
@@ -520,8 +517,8 @@ const Orders = () => {
                       >
                         <FiTruck size={14} />
                         {trackingLoadingOrderId === order.id
-                          ? "লোড হচ্ছে..."
-                          : "ট্র্যাক করুন"}
+                          ? "Loading..."
+                          : "Track"}
                       </button>
                       <CopyButton
                         text={order.shippingTrackingId}
@@ -537,8 +534,8 @@ const Orders = () => {
                       className="px-4 py-2 rounded-full bg-primary text-white text-xs sm:text-sm font-medium hover:bg-primaryDark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {cancellingOrderId === order.id
-                        ? "বাতিল করা হচ্ছে..."
-                        : "অর্ডার বাতিল করুন"}
+                        ? "Cancelling..."
+                        : "Cancel Order"}
                     </button>
                   )}
                 </div>
@@ -546,7 +543,7 @@ const Orders = () => {
                   trackingDataByOrderId[order.id] && (
                     <div className="mt-4 rounded-xl border border-gray-200 bg-emerald-50/30 p-4 space-y-2">
                       <p className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-800">
-                        ট্র্যাকিং স্ট্যাটাস —{" "}
+                        Tracking Status —{" "}
                         <span className="font-mono">
                           {trackingDataByOrderId[order.id].trackingId ||
                             order.shippingTrackingId}
@@ -562,7 +559,7 @@ const Orders = () => {
                       </p>
                       <p>
                         <span className="text-xs text-gray-600">
-                          স্ট্যাটাস:
+                          Status:
                         </span>{" "}
                         <span
                           className={`text-sm font-semibold ${getStatusColor(
@@ -581,7 +578,7 @@ const Orders = () => {
                       )}
                       {trackingDataByOrderId[order.id].shippingProvider && (
                         <p className="text-xs text-gray-600">
-                          প্রোভাইডার:{" "}
+                          Provider:{" "}
                           {trackingDataByOrderId[order.id].shippingProvider}
                         </p>
                       )}
@@ -590,7 +587,7 @@ const Orders = () => {
                           0 && (
                           <div className="mt-3 border-t border-gray-200 pt-3">
                             <p className="text-[10px] font-semibold uppercase tracking-wide text-primary mb-2">
-                              স্ট্যাটাস হিস্টোরি
+                              Status History
                             </p>
                             <ul className="space-y-1.5">
                               {trackingDataByOrderId[
@@ -622,12 +619,12 @@ const Orders = () => {
       </div>
 
       <Modal
-        title="অর্ডার বাতিল"
+        title="Cancel Order"
         open={cancelModalOrderId !== null}
         onCancel={hideCancelModal}
         footer={[
           <Button key="cancel" onClick={hideCancelModal}>
-            না, রাখুন
+            No, keep it
           </Button>,
           <Button
             key="confirm"
@@ -636,11 +633,11 @@ const Orders = () => {
             loading={cancellingOrderId === cancelModalOrderId}
             onClick={handleConfirmCancelOrder}
           >
-            হ্যাঁ, বাতিল করুন
+            Yes, cancel it
           </Button>,
         ]}
       >
-        <p>আপনি কি নিশ্চিত যে এই অর্ডারটি বাতিল করতে চান?</p>
+        <p>Are you sure you want to cancel this order?</p>
       </Modal>
     </>
   );

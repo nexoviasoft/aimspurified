@@ -33,7 +33,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
 
   const handleAdd = async () => {
     if (disabled) {
-      toast.error("Size এবং Quantity নির্বাচন করুন");
+      toast.error("Select Size and Quantity");
       return;
     }
     if (!productId) {
@@ -63,7 +63,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
       disabled={loading || disabled}
       className="btn-circle w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 transition-all ease-linear duration-200 px-4 py-1.5 rounded-3xl text-white sm:text-base text-sm disabled:opacity-70"
     >
-      <span>{loading ? "Adding..." : "কার্টে যোগ করুন -"}</span>
+      <span>{loading ? "Adding..." : "Add to Cart -"}</span>
       <div className=" flex items-center">
         <TbCurrencyTaka className=" sm:text-2xl text-xl" />
         <h2 className=" mt-[2px]  sm:text-xl font-bold text-lg">

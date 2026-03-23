@@ -15,7 +15,7 @@ export default function Home() {
       fallback={
         <ThemeLoader
           fullPage
-          message="হোম পেইজ লোড হচ্ছে, একটু অপেক্ষা করুন..."
+          message="Loading home page, please wait..."
         />
       }
     >

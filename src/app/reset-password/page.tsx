@@ -35,15 +35,15 @@ function ResetPasswordContent() {
     e.preventDefault();
 
     if (!userId || !token) {
-      toast.error("Reset link invalid. আবার forgot password দিন।");
+      toast.error("Reset link invalid. Please use forgot password again.");
       return;
     }
     if (!password || password.length < 6) {
-      toast.error("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে");
+      toast.error("Password must be at least 6 characters");
       return;
     }
     if (password !== confirmPassword) {
-      toast.error("পাসওয়ার্ড দুইবার একই লিখুন");
+      toast.error("Passwords must match");
       return;
     }
 
@@ -58,7 +58,7 @@ function ResetPasswordContent() {
       });
 
       if (res.success) {
-        toast.success(res.message || "Password reset successful. এখন লগইন করুন।");
+        toast.success(res.message || "Password reset successful. Please login now.");
         // ছোট্ট ডিলে দিয়ে লগইন পেইজে পাঠানো হবে
         setTimeout(() => {
           router.push(
@@ -66,7 +66,7 @@ function ResetPasswordContent() {
           );
         }, 800);
       } else {
-        toast.error(res.message || "Password reset failed. আবার চেষ্টা করুন।");
+        toast.error(res.message || "Password reset failed. Please try again.");
       }
     } finally {
       setSubmitting(false);
@@ -83,22 +83,22 @@ function ResetPasswordContent() {
             <div className="px-6 pt-6 text-center">
               <div className="inline-block mb-3">
                 <span className="text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary">
-                  নতুন পাসওয়ার্ড
+                  New Password
                 </span>
               </div>
               <h2 className="text-2xl font-black text-primary">Reset Password</h2>
               <p className="text-sm text-gray-600 mt-2">
-                আপনার নতুন পাসওয়ার্ড সেট করুন।
+                Set your new password.
               </p>
             </div>
 
             <div className="p-6 border-t border-gray-100">
               {missingParams ? (
                 <div className="text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded px-3 py-3">
-                  Reset link invalid বা incomplete.
+                  Reset link invalid or incomplete.
                   <div className="mt-2">
                     <Link href="/forgot-password" className="text-primary font-semibold">
-                      Forgot password পেইজে যান
+                      Go to Forgot Password page
                     </Link>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ function ResetPasswordContent() {
                     </span>
                     <input
                       type={showPassword ? "text" : "password"}
-                      placeholder="নতুন পাসওয়ার্ড"
+                      placeholder="New Password"
                       className="w-full rounded-md border border-gray-300 bg-transparent py-2.5 pl-9 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -131,7 +131,7 @@ function ResetPasswordContent() {
                     </span>
                     <input
                       type={showConfirm ? "text" : "password"}
-                      placeholder="পাসওয়ার্ড আবার লিখুন"
+                      placeholder="Re-enter password"
                       className="w-full rounded-md border border-gray-300 bg-transparent py-2.5 pl-9 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
@@ -151,18 +151,18 @@ function ResetPasswordContent() {
                     disabled={!canSubmit}
                     className="bg-primary p-2.5 rounded text-white w-full hover:bg-primary/90 disabled:opacity-50 font-semibold text-sm"
                   >
-                    {submitting ? "সেট করা হচ্ছে..." : "পাসওয়ার্ড সেট করুন"}
+                    {submitting ? "Setting..." : "Set Password"}
                   </button>
                 </form>
               )}
 
               <div className="flex items-center justify-center gap-2 mt-4 text-sm">
-                <span>লগইন করতে চান?</span>
+                <span>Want to login?</span>
                 <Link
                   href={`/login?callbackUrl=${encodeURIComponent(pathname || "/")}`}
                   className="text-primary font-semibold"
                 >
-                  লগইন
+                  Login
                 </Link>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function ResetPasswordPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center text-sm text-gray-600">
-          লোড হচ্ছে...
+          Loading...
         </div>
       }
     >

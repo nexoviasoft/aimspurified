@@ -115,7 +115,7 @@ const Autocomplete = () => {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         className="w-full py-[10px] px-[8px] border-[1.5px] border-gray-300  focus:outline-none placeholder:text-gray-500 focus:border-primary"
-        placeholder="জেলা *"
+        placeholder="District *"
       />
       {isOpen && (
         <ul className="absolute z-10 w-full bg-white border border-gray-300  shadow-md mt-1 max-h-40 overflow-y-auto">

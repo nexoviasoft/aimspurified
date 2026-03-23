@@ -177,10 +177,10 @@ export default function Dashboard() {
       <section className="w-full flex justify-center items-center min-h-[320px]">
         <div className="max-w-md w-full text-center space-y-3 rounded-2xl border border-gray-200 bg-gray-50 px-6 py-6">
           <p className="text-sm font-semibold text-gray-800">
-            প্রোফাইল লোড করা যায়নি
+            Failed to load profile
           </p>
           <p className="text-xs md:text-sm text-gray-700">
-            অনুগ্রহ করে পেজটি রিফ্রেশ করুন বা একটু পরে আবার চেষ্টা করুন।
+            Please refresh the page or try again later.
           </p>
         </div>
       </section>
@@ -206,14 +206,13 @@ export default function Dashboard() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="space-y-2">
             <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
-              আমার অ্যাকাউন্ট
+              My Account
             </p>
             <h2 className="text-xl md:text-2xl font-semibold">
-              স্বাগতম, {profile.name || "customer"}
+              Welcome, {profile.name || "customer"}
             </h2>
             <p className="text-xs sm:text-sm text-white/90 max-w-md">
-              আপনার ড্যাশবোর্ড থেকে অর্ডার, ঠিকানা এবং প্রোফাইল তথ্য এক জায়গা
-              থেকে ম্যানেজ করুন।
+              Manage your orders, addresses, and profile information from your dashboard.
             </p>
           </div>
           <div className="flex flex-col sm:items-end gap-3 w-full sm:w-auto">
@@ -223,7 +222,7 @@ export default function Dashboard() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs uppercase tracking-wide text-white/80">
-                  লগইন করেছেন
+                  Logged in as
                 </span>
                 <span className="text-sm sm:text-base font-medium truncate max-w-[180px] sm:max-w-[220px]">
                   {profile.email}
@@ -233,18 +232,18 @@ export default function Dashboard() {
             <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full sm:w-auto">
               <div className="rounded-xl bg-white/10 px-3 py-2 flex flex-col gap-1">
                 <span className="text-[11px] uppercase tracking-wide text-white/80">
-                  প্রোফাইল সেটআপ
+                  Profile Setup
                 </span>
                 <span className="text-xs sm:text-sm font-medium">
-                  {completionScore}/3 সম্পন্ন
+                  {completionScore}/3 completed
                 </span>
               </div>
               <div className="rounded-xl bg-white/10 px-3 py-2 flex flex-col gap-1">
                 <span className="text-[11px] uppercase tracking-wide text-white/80">
-                  অ্যাকাউন্ট স্ট্যাটাস
+                  Account Status
                 </span>
                 <span className="text-xs sm:text-sm font-medium">
-                  সক্রিয় সদস্য
+                  Active Member
                 </span>
               </div>
             </div>
@@ -256,7 +255,7 @@ export default function Dashboard() {
         <div className="rounded-2xl border border-gray-100 bg-white/90 shadow-sm px-4 py-4 flex items-start justify-between gap-3">
           <div>
             <p className="text-[11px] uppercase tracking-wide text-gray-500">
-              মোট অর্ডার
+              Total Orders
             </p>
             <p className="text-xl font-semibold text-gray-900">
               {orderStats.total}
@@ -265,7 +264,7 @@ export default function Dashboard() {
               href="/my-account/orders"
               className="mt-2 inline-flex text-xs font-medium text-primary hover:text-gray-700"
             >
-              অর্ডার দেখুন
+              View Orders
             </Link>
           </div>
           <span className="h-10 w-10 rounded-2xl bg-gray-100 text-gray-700 flex items-center justify-center">
@@ -275,13 +274,13 @@ export default function Dashboard() {
         <div className="rounded-2xl border border-gray-100 bg-white/90 shadow-sm px-4 py-4 flex items-start justify-between gap-3">
           <div>
             <p className="text-[11px] uppercase tracking-wide text-gray-500">
-              ডেলিভারড
+              Delivered
             </p>
             <p className="text-xl font-semibold text-gray-900">
               {orderStats.delivered}
             </p>
             <p className="mt-2 text-[11px] text-gray-500">
-              সফল ডেলিভারি
+              Successful Deliveries
             </p>
           </div>
           <span className="h-10 w-10 rounded-2xl bg-gray-100 text-gray-700 flex items-center justify-center">
@@ -291,13 +290,13 @@ export default function Dashboard() {
         <div className="rounded-2xl border border-gray-100 bg-white/90 shadow-sm px-4 py-4 flex items-start justify-between gap-3">
           <div>
             <p className="text-[11px] uppercase tracking-wide text-gray-500">
-              চলমান
+              In Progress
             </p>
             <p className="text-xl font-semibold text-gray-900">
               {orderStats.inProgress}
             </p>
             <p className="mt-2 text-[11px] text-gray-500">
-              পেন্ডিং / শিপড
+              Pending / Shipped
             </p>
           </div>
           <span className="h-10 w-10 rounded-2xl bg-gray-100 text-gray-600 flex items-center justify-center">
@@ -307,12 +306,12 @@ export default function Dashboard() {
         <div className="rounded-2xl border border-gray-100 bg-white/90 shadow-sm px-4 py-4 flex items-start justify-between gap-3">
           <div>
             <p className="text-[11px] uppercase tracking-wide text-gray-500">
-              বাতিল
+              Cancelled
             </p>
             <p className="text-xl font-semibold text-gray-900">
               {orderStats.cancelled}
             </p>
-            <p className="mt-2 text-[11px] text-gray-500">বাতিল অর্ডার</p>
+            <p className="mt-2 text-[11px] text-gray-500">Cancelled Orders</p>
           </div>
           <span className="h-10 w-10 rounded-2xl bg-gray-200 text-gray-700 flex items-center justify-center">
             <FiXCircle size={18} />
@@ -330,10 +329,10 @@ export default function Dashboard() {
                 </span>
                 <div>
                   <h2 className="text-base md:text-lg font-semibold text-gray-900">
-                    অ্যাকাউন্ট তথ্য
+                    Account Information
                   </h2>
                   <p className="text-xs text-gray-500">
-                    দ্রুত চেকআউটের জন্য আপনার প্রোফাইল তথ্য আপডেট করুন।
+                    Update your profile information for faster checkout.
                   </p>
                 </div>
               </div>
@@ -346,7 +345,7 @@ export default function Dashboard() {
                   className="inline-flex items-center gap-1 rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
                 >
                   <FaEdit className="text-[11px]" />
-                  প্রোফাইল সম্পাদনা
+                  Edit Profile
                 </button>
               )}
             </div>
@@ -367,7 +366,7 @@ export default function Dashboard() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
                     <label className="block text-xs font-medium text-gray-600">
-                      পূর্ণ নাম
+                      Full Name
                     </label>
                     <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2 focus-within:ring-2 focus-within:ring-gray-300">
                       <FiUser className="text-gray-400" size={16} />
@@ -377,7 +376,7 @@ export default function Dashboard() {
                         onChange={(e) =>
                           setEditData({ ...editData, name: e.target.value })
                         }
-                        placeholder="আপনার পূর্ণ নাম"
+                        placeholder="Your Full Name"
                         className="w-full bg-transparent text-sm outline-none"
                         autoComplete="name"
                         disabled={saving}
@@ -386,7 +385,7 @@ export default function Dashboard() {
                   </div>
                   <div className="space-y-1.5">
                     <label className="block text-xs font-medium text-gray-600">
-                      ফোন নম্বর
+                      Phone Number
                     </label>
                     <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2 focus-within:ring-2 focus-within:ring-gray-300">
                       <FiPhone className="text-gray-400" size={16} />
@@ -406,7 +405,7 @@ export default function Dashboard() {
                 </div>
                 <div className="space-y-1.5">
                   <label className="block text-xs font-medium text-gray-600">
-                    পূর্ণ ঠিকানা
+                    Full Address
                   </label>
                   <div className="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2 focus-within:ring-2 focus-within:ring-gray-300">
                     <FiMapPin className="mt-0.5 text-gray-400" size={16} />
@@ -416,7 +415,7 @@ export default function Dashboard() {
                       onChange={(e) =>
                         setEditData({ ...editData, address: e.target.value })
                       }
-                      placeholder="বাড়ি / রাস্তা / এলাকা"
+                      placeholder="House / Road / Area"
                       className="w-full bg-transparent text-sm outline-none resize-none"
                       autoComplete="street-address"
                       disabled={saving}
@@ -429,7 +428,7 @@ export default function Dashboard() {
                     disabled={saving}
                     className="inline-flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {saving ? "সেভ হচ্ছে..." : "পরিবর্তন সেভ করুন"}
+                    {saving ? "Saving..." : "Save Changes"}
                   </button>
                   <button
                     type="button"
@@ -445,7 +444,7 @@ export default function Dashboard() {
                     }}
                     className="inline-flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    বাতিল
+                    Cancel
                   </button>
                 </div>
               </form>
@@ -457,10 +456,10 @@ export default function Dashboard() {
                   </span>
                   <div className="flex-1">
                     <p className="text-xs uppercase tracking-wide text-gray-500">
-                      পূর্ণ নাম
+                      Full Name
                     </p>
                     <p className="text-sm font-medium text-gray-900">
-                      {profile.name || "প্রদান করা হয়নি"}
+                      {profile.name || "Not provided"}
                     </p>
                   </div>
                 </div>
@@ -470,10 +469,10 @@ export default function Dashboard() {
                   </span>
                   <div className="flex-1">
                     <p className="text-xs uppercase tracking-wide text-gray-500">
-                      ফোন নম্বর
+                      Phone Number
                     </p>
                     <p className="text-sm font-medium text-gray-900">
-                      {profile.phone || "প্রদান করা হয়নি"}
+                      {profile.phone || "Not provided"}
                     </p>
                   </div>
                 </div>
@@ -483,10 +482,10 @@ export default function Dashboard() {
                   </span>
                   <div className="flex-1">
                     <p className="text-xs uppercase tracking-wide text-gray-500">
-                      পূর্ণ ঠিকানা
+                      Full Address
                     </p>
                     <p className="text-sm font-medium text-gray-900">
-                      {profile.address || "প্রদান করা হয়নি"}
+                      {profile.address || "Not provided"}
                     </p>
                   </div>
                 </div>
@@ -497,7 +496,7 @@ export default function Dashboard() {
                     </span>
                     <div className="flex-1">
                       <p className="text-xs uppercase tracking-wide text-gray-500">
-                        জেলা
+                        District
                       </p>
                       <p className="text-sm font-medium text-gray-900">
                         {profile.district}
@@ -520,7 +519,7 @@ export default function Dashboard() {
                     Login & security
                   </h2>
                   <p className="text-xs text-gray-500">
-                    ইমেইল এবং পাসওয়ার্ড সংক্রান্ত তথ্য
+                    Email and password information
                   </p>
                 </div>
               </div>
@@ -579,10 +578,10 @@ export default function Dashboard() {
               </span>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-gray-900">
-                  ট্র্যাকিং আইডি কপি
+                  Copy Tracking ID
                 </h2>
                 <p className="text-xs text-gray-500">
-                  সাম্প্রতিক অর্ডারের ট্র্যাকিং আইডি এক ক্লিকে কপি করুন
+                  Copy tracking ID of recent orders with one click
                 </p>
               </div>
             </div>
@@ -596,7 +595,7 @@ export default function Dashboard() {
                 >
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="text-xs font-medium text-gray-600 shrink-0">
-                      অর্ডার #{order.id}
+                      Order #{order.id}
                     </span>
                     <span className="font-mono text-sm font-semibold text-gray-800 truncate">
                       {order.shippingTrackingId}
@@ -612,7 +611,7 @@ export default function Dashboard() {
             </div>
           ) : (
             <p className="text-xs text-gray-500">
-              ট্র্যাকিং আইডি সহ কোনো অর্ডার নেই। অর্ডার সেকশনে যান।
+              No orders with tracking ID. Go to the orders section.
             </p>
           )}
         </div>

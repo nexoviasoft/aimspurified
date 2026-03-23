@@ -48,18 +48,18 @@ const MobileTabs = () => {
           className="flex flex-col items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-medium bg-red-50 text-red-600 hover:bg-red-100 transition-all border border-red-100 h-full"
         >
           <MdLogout size={20} />
-          <span>লগআউট</span>
+          <span>Logout</span>
         </button>
       </div>
 
       <Modal
-        title="লগআউট"
+        title="Logout"
         open={logoutModalOpen}
         onCancel={() => setLogoutModalOpen(false)}
         centered
         footer={[
           <Button key="cancel" onClick={() => setLogoutModalOpen(false)} className="rounded-full">
-            বাতিল
+            Cancel
           </Button>,
           <Button 
             key="confirm" 
@@ -68,11 +68,11 @@ const MobileTabs = () => {
             onClick={handleConfirmLogout}
             className="rounded-full bg-red-600"
           >
-            হ্যাঁ, লগআউট
+            Yes, Logout
           </Button>,
         ]}
       >
-        <p className="py-4 text-gray-600">আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট থেকে লগআউট করতে চান?</p>
+        <p className="py-4 text-gray-600">Are you sure you want to logout from your account?</p>
       </Modal>
     </nav>
   );

@@ -372,7 +372,7 @@ const CheckoutContent = () => {
           itemProductIds.includes(id),
         );
         if (!applicable) {
-          toast.error("এই কুপন আপনার নির্বাচিত প্রোডাক্টে প্রযোজ্য নয়");
+          toast.error("This coupon is not applicable for your selected products");
           setPromo(null);
           return;
         }
@@ -482,7 +482,7 @@ const CheckoutContent = () => {
 
     const trimmedPhone = phone.trim();
     if (!/^[0-9]+$/.test(trimmedPhone)) {
-      toast.error("ফোন নম্বর শুধুমাত্র সংখ্যায় লিখুন");
+      toast.error("Phone number must contain only digits");
       return;
     }
 
@@ -491,7 +491,7 @@ const CheckoutContent = () => {
       return;
     }
     if (!deliveryType) {
-      toast.error("ডেলিভারি টাইপ নির্বাচন করুন");
+      toast.error("Select delivery type");
       return;
     }
 
@@ -581,7 +581,7 @@ const CheckoutContent = () => {
                 Checkout
               </p>
               <h1 className="text-lg font-bold text-gray-900 leading-tight">
-                অর্ডার সম্পূর্ণ করুন
+                Complete Order
               </h1>
             </div>
           </div>
@@ -640,7 +640,7 @@ const Checkout = () => {
     <Suspense
       fallback={
         <div className="min-h-[300px] flex items-center justify-center">
-          <p className="text-sm text-primary">Checkout লোড হচ্ছে...</p>
+          <p className="text-sm text-primary">Loading Checkout...</p>
         </div>
       }
     >

@@ -31,11 +31,11 @@ const Reviews: React.FC<ReviewProps> = ({ reviews, productId, companyId }) => {
     <section className="flex gap-5 flex-col min-[850px]:flex-row">
       <div className="flex gap-3 flex-col min-w-max">
         <div>
-          <h1 className=" text-base sm:text-lg font-medium">কাস্টমার রিভিউ</h1>
+          <h1 className=" text-base sm:text-lg font-medium">Customer Reviews</h1>
           <div className="flex gap-1 items-center">
             <Rate disabled value={averageRating} allowHalf />
             <p className=" sm:text-base text-xs">
-              মোট {reviewList.length} টি রিভিউ এর ভিত্তিতে
+              Based on {reviewList.length} reviews
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Reviews: React.FC<ReviewProps> = ({ reviews, productId, companyId }) => {
         {reviewList.length > 0 ? (
           <ReviewsCarousel reviews={reviewList} />
         ) : (
-          <p className="text-sm text-gray-600">এখনও কোনো রিভিউ নেই।</p>
+          <p className="text-sm text-gray-600">No reviews yet.</p>
         )}
       </div>
     </section>

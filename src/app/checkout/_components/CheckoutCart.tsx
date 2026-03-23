@@ -59,7 +59,7 @@ const CheckoutCart = ({
   return (
     <section className=" border border-gray-100 bg-white p-4 shadow-sm flex flex-col gap-4 sticky top-4 rounded-lg">
       <h1 className="text-base font-bold text-gray-900 border-b border-gray-100 pb-2">
-        আপনার কার্ট
+        Your Cart
       </h1>
       {/* cart items with image & quantity controls */}
       <div className="flex flex-col gap-3">
@@ -104,7 +104,7 @@ const CheckoutCart = ({
       </div>
 
       <p className="text-xs text-center text-gray-400 mt-2 bg-gray-50 py-2  border border-gray-100 rounded-lg">
-        যেকোনো সমস্যায় নির্দ্বিধায় যোগাযোগ করুন- <span className="text-gray-600 font-medium">{contactPhone?.trim() || "01774617452"}</span>
+        For any issues, feel free to contact us - <span className="text-gray-600 font-medium">{contactPhone?.trim() || "01774617452"}</span>
       </p>
     </section>
   );

@@ -63,7 +63,7 @@ export default function Address() {
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating address:", error);
-      alert("ঠিকানা আপডেট করা যায়নি। আবার চেষ্টা করুন।");
+      alert("Failed to update address. Try again.");
     } finally {
       setSaving(false);
     }
@@ -87,11 +87,11 @@ export default function Address() {
           <div className="inline-flex items-center gap-2 rounded-full bg-gray-50 px-4 py-1 border border-gray-100">
             <span className="h-2 w-2 rounded-full bg-gray-500 animate-pulse" />
             <span className="text-[11px] font-medium text-gray-700">
-              আপনার ঠিকানা লোড হচ্ছে
+              Loading your address
             </span>
           </div>
           <p className="text-sm text-gray-600">
-            আপনার সেভ করা ডেলিভারি ঠিকানা লোড হচ্ছে, একটু অপেক্ষা করুন।
+            Loading your saved delivery address, please wait.
           </p>
         </div>
       </section>
@@ -103,10 +103,10 @@ export default function Address() {
       <section className="w-full flex justify-center items-center min-h-[320px]">
         <div className="max-w-md w-full text-center space-y-3 rounded-2xl border border-gray-200 bg-gray-50/70 px-6 py-6">
           <p className="text-sm font-semibold text-gray-700">
-            ঠিকানা লোড করা যায়নি
+            Failed to load address
           </p>
           <p className="text-xs md:text-sm text-gray-600">
-            অনুগ্রহ করে পেজটি রিফ্রেশ করুন বা একটু পরে আবার চেষ্টা করুন।
+            Please refresh the page or try again later.
           </p>
         </div>
       </section>
@@ -119,17 +119,16 @@ export default function Address() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-1.5">
             <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-100/90">
-              আমার অ্যাকাউন্ট
+              My Account
             </p>
-            <h2 className="text-xl md:text-2xl font-semibold">সংরক্ষিত ঠিকানা</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Saved Address</h2>
             <p className="text-xs sm:text-sm text-gray-50/95 max-w-md">
-              পছন্দের ডেলিভারি ঠিকানা আপডেট করে রাখুন, যেন প্রতিবার অর্ডার আরও
-              দ্রুত হয়।
+              Update your preferred delivery address for faster orders.
             </p>
           </div>
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs sm:text-sm">
             <FiMapPin className="text-gray-100" />
-            <span>ডিফল্ট ডেলিভারি লোকেশন</span>
+            <span>Default Delivery Location</span>
           </div>
         </div>
       </div>
@@ -142,10 +141,10 @@ export default function Address() {
             </span>
             <div>
               <h3 className="text-base md:text-lg font-semibold text-gray-900">
-                ডিফল্ট ঠিকানা
+                Default Address
               </h3>
               <p className="text-xs text-gray-500">
-                এই ঠিকানাতেই আপনার অর্ডার ডেলিভারি করা হবে।
+                Your orders will be delivered to this address.
               </p>
             </div>
           </div>
@@ -155,7 +154,7 @@ export default function Address() {
               className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-100"
             >
               <FaEdit className="text-[11px]" />
-              ঠিকানা সম্পাদনা
+              Edit Address
             </button>
           ) : (
             <div className="flex flex-wrap gap-2">
@@ -165,14 +164,14 @@ export default function Address() {
                 className="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-xs md:text-sm font-semibold text-white hover:bg-primary/90 disabled:opacity-50"
               >
                 <FaSave className="text-[11px]" />
-                {saving ? "সেভ হচ্ছে..." : "সেভ"}
+                {saving ? "Saving..." : "Save"}
               </button>
               <button
                 onClick={handleCancel}
                 className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-4 py-2 text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-200"
               >
                 <FaTimes className="text-[11px]" />
-                বাতিল
+                Cancel
               </button>
             </div>
           )}
@@ -183,7 +182,7 @@ export default function Address() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <label className="block text-xs font-medium text-gray-600">
-                  ফোন নম্বর
+                  Phone Number
                 </label>
                 <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2">
                   <FiPhone className="text-gray-400" size={16} />
@@ -193,14 +192,14 @@ export default function Address() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    placeholder="ফোন নম্বর লিখুন"
+                    placeholder="Enter phone number"
                     className="w-full bg-transparent text-sm outline-none"
                   />
                 </div>
               </div>
               <div className="space-y-1.5">
                 <label className="block text-xs font-medium text-gray-600">
-                  জেলা
+                  District
                 </label>
                 <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2">
                   <FiMapPin className="text-gray-400" size={16} />
@@ -210,7 +209,7 @@ export default function Address() {
                     onChange={(e) =>
                       setFormData({ ...formData, district: e.target.value })
                     }
-                    placeholder="জেলা লিখুন"
+                    placeholder="Enter district"
                     className="w-full bg-transparent text-sm outline-none"
                   />
                 </div>
@@ -218,7 +217,7 @@ export default function Address() {
             </div>
             <div className="space-y-1.5">
               <label className="block text-xs font-medium text-gray-600">
-                পূর্ণ ঠিকানা
+                Full Address
               </label>
               <div className="flex items-start gap-2 rounded-lg border border-gray-200 bg-gray-50/60 px-3 py-2">
                 <FiMapPin className="mt-0.5 text-gray-400" size={16} />
@@ -227,7 +226,7 @@ export default function Address() {
                   onChange={(e) =>
                     setFormData({ ...formData, address: e.target.value })
                   }
-                  placeholder="পূর্ণ ঠিকানা লিখুন"
+                  placeholder="Enter full address"
                   rows={3}
                   className="w-full bg-transparent text-sm outline-none resize-none"
                 />
@@ -242,10 +241,10 @@ export default function Address() {
               </span>
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-500">
-                  ফোন নম্বর
+                  Phone Number
                 </p>
                 <p className="text-sm font-medium text-gray-900">
-                  {profile.phone || "প্রদান করা হয়নি"}
+                  {profile.phone || "Not provided"}
                 </p>
               </div>
             </div>
@@ -255,10 +254,10 @@ export default function Address() {
               </span>
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-500">
-                  জেলা
+                  District
                 </p>
                 <p className="text-sm font-medium text-gray-900">
-                  {profile.district || "প্রদান করা হয়নি"}
+                  {profile.district || "Not provided"}
                 </p>
               </div>
             </div>
@@ -268,10 +267,10 @@ export default function Address() {
               </span>
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-500">
-                  পূর্ণ ঠিকানা
+                  Full Address
                 </p>
                 <p className="text-sm font-medium text-gray-900">
-                  {profile.address || "প্রদান করা হয়নি"}
+                  {profile.address || "Not provided"}
                 </p>
               </div>
             </div>

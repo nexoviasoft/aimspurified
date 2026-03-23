@@ -81,9 +81,8 @@ const Header = () => {
                 width={80}
                 height={40}
                 unoptimized
-                className={`transition-opacity duration-300 ${
-                  imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
+                className={`transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
                 onLoad={() => setImageLoaded(true)}
               />
             )}
@@ -123,33 +122,33 @@ const Header = () => {
             <ul className=" flex gap-2">
               <Link
                 href="/"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-md font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
               >
-                হোম
+                Home
               </Link>
               <Link
                 href="/products"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-md font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
               >
-                শপ
+                Shop
               </Link>
               <Link
                 href="/flashSell"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-md font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
               >
-                ফ্ল্যাশ সেল
+                Flash Sale
               </Link>
               <Link
                 href="/contact-us"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-md font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
               >
-                যোগাযোগ
+                Contact
               </Link>
               <Link
                 href="/order-tracking"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-md font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
               >
-                অর্ডার ট্র্যাকিং
+                Order Tracking
               </Link>
             </ul>
           </div>
@@ -170,14 +169,14 @@ const Header = () => {
                     className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-colors duration-200 ease-linear"
                   >
                     <IoLogInOutline size={18} />
-                    লগইন
+                    Login
                   </Link>
                   <Link
                     href="/register"
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primaryDark transition-colors duration-200 ease-linear"
                   >
                     <FaRegUser size={16} />
-                    রেজিস্টার
+                    Register
                   </Link>
                 </div>
               )}
@@ -204,9 +203,9 @@ const Header = () => {
       <div
         className={`bg-white shadow-md absolute backdrop-blur-xl 
           min-[950px]:hidden block  transition-all ease-linear duration-200 border-r border-gray-200 ${cn(
-            toggle ? "left-0" : "-left-80",
-            toggle && "right-0",
-          )}`}
+          toggle ? "left-0" : "-left-80",
+          toggle && "right-0",
+        )}`}
       >
         <ul className=" flex flex-col bg gap-2">
           <Link
@@ -214,7 +213,7 @@ const Header = () => {
             href="/"
             className=" text-lg font-medium px-5 py-2 hover:text-primary tran95ion-all ease-linear duration-200  hover:bg-primary/5"
           >
-            হোম
+            Home
           </Link>
 
           <Link
@@ -222,28 +221,28 @@ const Header = () => {
             href="/products"
             className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
           >
-            শপ
+            Shop
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/flashSell"
             className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
           >
-            ফ্ল্যাশ সেল
+            Flash Sale
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/contact-us"
             className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
           >
-            যোগাযোগ
+            Contact
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/order-tracking"
             className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
           >
-            অর্ডার ট্র্যাকিং
+            Order Tracking
           </Link>
 
           {!authLoading && !isAuthenticated && (
@@ -264,7 +263,7 @@ const Header = () => {
       `}
               >
                 <FiLogIn className="text-2xl text-gray-700" />
-                <span>লগইন করুন</span>
+                <span>Login</span>
               </Link>
 
               <Link
@@ -283,11 +282,11 @@ const Header = () => {
       `}
               >
                 <FiUserPlus className="text-2xl" />
-                <span>রেজিস্টার করুন</span>
+                <span>Register</span>
               </Link>
 
               <p className="text-center text-xs text-gray-500 mt-2">
-                অ্যাকাউন্ট না থাকলে রেজিস্টার করুন • দ্রুত ও সহজ
+                No account? Register now • Fast & Easy
               </p>
             </div>
           )}
@@ -300,12 +299,12 @@ const Header = () => {
       </div>
 
       <Modal
-        title="লগআউট"
+        title="Logout"
         open={logoutModalOpen}
         onCancel={() => setLogoutModalOpen(false)}
         footer={[
           <Button key="cancel" onClick={() => setLogoutModalOpen(false)}>
-            বাতিল
+            Cancel
           </Button>,
           <Button
             key="confirm"
@@ -316,11 +315,11 @@ const Header = () => {
               setLogoutModalOpen(false);
             }}
           >
-            হ্যাঁ, লগআউট
+            Yes, Logout
           </Button>,
         ]}
       >
-        <p>আপনি কি নিশ্চিত লগআউট করতে চান?</p>
+        <p>Are you sure you want to logout?</p>
       </Modal>
     </nav>
   );

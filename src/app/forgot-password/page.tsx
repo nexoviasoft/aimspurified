@@ -15,12 +15,12 @@ const ForgotPasswordPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) {
-      toast.error("অনুগ্রহ করে আপনার ইমেইল লিখুন");
+      toast.error("Please enter your email");
       return;
     }
     const validEmail = /\S+@\S+\.\S+/.test(email);
     if (!validEmail) {
-      toast.error("অনুগ্রহ করে সঠিক ইমেইল লিখুন");
+      toast.error("Please enter a valid email");
       return;
     }
 // console.log(email.trim());
@@ -30,12 +30,12 @@ const ForgotPasswordPage = () => {
       if (res.success) {
         toast.success(
           res.message ||
-            "যদি এই ইমেইলটি রেজিস্টার্ড থাকে, তাহলে reset link পাঠানো হয়েছে।",
+            "If this email is registered, a reset link has been sent.",
         );
       } else {
         toast.error(
           res.message ||
-            "Password reset link পাঠাতে সমস্যা হয়েছে, আবার চেষ্টা করুন।",
+            "Problem sending password reset link, please try again.",
         );
       }
     } finally {
@@ -51,14 +51,14 @@ const ForgotPasswordPage = () => {
             <div className="px-6 pt-6 text-center">
               <div className="inline-block mb-3">
                 <span className="text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary">
-                  পাসওয়ার্ড রিসেট
+                  Password Reset
                 </span>
               </div>
               <h2 className="text-2xl font-black text-primary">
-                Password ভুলে গেছেন?
+                Forgot Password?
               </h2>
               <p className="text-sm text-gray-600 mt-2">
-                আপনার একাউন্টের ইমেইল লিখুন। আমরা একটি পাসওয়ার্ড রিসেট লিংক পাঠাবো।
+                Enter your account email. We will send a password reset link.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ const ForgotPasswordPage = () => {
                   </span>
                   <input
                     type="email"
-                    placeholder="আপনার ইমেইল"
+                    placeholder="Your Email"
                     className="w-full rounded-md border border-gray-300 bg-transparent py-2.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -82,17 +82,17 @@ const ForgotPasswordPage = () => {
                   disabled={submitting}
                   className="bg-primary p-2.5 rounded text-white w-full hover:bg-primary/90 disabled:opacity-50 font-semibold text-sm"
                 >
-                  {submitting ? "অনুরোধ পাঠানো হচ্ছে..." : "রিসেট লিংক পাঠান"}
+                  {submitting ? "Sending request..." : "Send Reset Link"}
                 </button>
               </form>
 
               <div className="flex items-center justify-center gap-2 mt-4 text-sm">
-                <span>মনে পড়ে গেছে?</span>
+                <span>Remembered your password?</span>
                 <Link
                   href={`/login?callbackUrl=${encodeURIComponent(pathname || "/")}`}
                   className="text-primary font-semibold"
                 >
-                  লগইন পেইজে ফিরে যান
+                  Back to login page
                 </Link>
               </div>
             </div>

@@ -239,7 +239,7 @@ const Product = async ({ params }: { params: Promise<{ id: string }> }) => {
     <Suspense
       fallback={
         <div className="min-h-[300px] flex items-center justify-center">
-          <p className="text-sm text-gray-600">Product details লোড হচ্ছে...</p>
+          <p className="text-sm text-gray-600">Loading product details...</p>
         </div>
       }
     >
@@ -278,7 +278,7 @@ const Product = async ({ params }: { params: Promise<{ id: string }> }) => {
             {/* related products */}
             <div className="mt-4">
               <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                সম্পর্কিত পণ্যসমূহ
+                Related Products
               </h2>
               <RelatedProducts id={id} />
             </div>

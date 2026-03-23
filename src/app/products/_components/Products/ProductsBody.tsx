@@ -251,7 +251,7 @@ const ProductsBody = () => {
           <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 border border-gray-200">
             <span className="h-2 w-2 rounded-full bg-black animate-pulse" />
             <span className="text-[11px] font-medium text-gray-700">
-              আপনার জন্য পণ্যগুলো লোড হচ্ছে
+              Loading products for you
             </span>
           </div>
           <div className="space-y-2 animate-pulse">
@@ -267,12 +267,12 @@ const ProductsBody = () => {
     return (
       <section className="w-full flex justify-center items-center py-16">
         <div className="max-w-md w-full text-center space-y-3 rounded-2xl border border-gray-200 bg-gray-50 px-6 py-6">
-          <p className="text-sm font-semibold text-gray-800">কিছু ভুল হয়েছে</p>
+          <p className="text-sm font-semibold text-gray-800">Something went wrong</p>
           <p className="text-sm text-gray-700 break-words">
             {error}
           </p>
           <p className="text-xs text-gray-600">
-            অনুগ্রহ করে পেজটি রিফ্রেশ করুন। যদি সমস্যা ঠিক না হয়, কিছুক্ষণ পরে আবার চেষ্টা করুন।
+            Please refresh the page. If the problem persists, try again later.
           </p>
         </div>
       </section>
@@ -284,10 +284,10 @@ const ProductsBody = () => {
       <section className="w-full flex justify-center items-center py-20">
         <div className="max-w-lg w-full text-center space-y-4 rounded-2xl border border-dashed border-gray-200 bg-white/70 px-6 py-8">
           <p className="text-sm font-semibold text-gray-900">
-            আপনার নির্বাচিত ফিল্টারে কোনো পণ্য পাওয়া যায়নি
+            No products found for your selected filters
           </p>
           <p className="text-sm text-gray-500">
-            আরো পণ্য দেখতে কিছু ফিল্টার সরিয়ে ফেলুন অথবা দাম ও ক্যাটাগরি পরিবর্তন করে চেষ্টা করুন।
+            Remove some filters or try changing the price and category to see more products.
           </p>
         </div>
       </section>

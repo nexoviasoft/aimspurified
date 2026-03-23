@@ -13,7 +13,7 @@ interface CopyButtonProps {
 
 export default function CopyButton({
   text,
-  label = "কপি করুন",
+  label = "Copy",
   className = "",
   size = 16,
 }: CopyButtonProps) {
@@ -24,10 +24,10 @@ export default function CopyButton({
     try {
       await navigator.clipboard.writeText(text.trim());
       setCopied(true);
-      toast.success("ট্র্যাকিং আইডি কপি হয়েছে");
+      toast.success("Tracking ID Copied");
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error("কপি করা যায়নি");
+      toast.error("Could not copy");
     }
   };
 
@@ -39,7 +39,7 @@ export default function CopyButton({
       className={`inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-60 transition-colors ${className}`}
     >
       <FiCopy size={size} className={copied ? "text-black" : ""} />
-      <span>{copied ? "কপি হয়েছে" : label}</span>
+      <span>{copied ? "Copied" : label}</span>
     </button>
   );
 }

@@ -23,10 +23,10 @@ const FlashSale = async ({ isPage = false }: FlashSaleProps = {}) => {
         <section className="max-w-7xl mx-auto px-5 md:pt-10 pt-5 min-h-[50vh] flex flex-col items-center justify-center">
           <div className="text-center space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-              এই মুহূর্তে কোনো ফ্ল্যাশ সেল চলছে না
+              No Flash Sale is running at the moment
             </h2>
             <p className="text-gray-500">
-              পরবর্তী ফ্ল্যাশ সেলের চমকপ্রদ ডিল পেতে আমাদের সাথেই থাকুন!
+              Stay tuned with us for exciting deals in the next Flash Sale!
             </p>
           </div>
         </section>
@@ -78,11 +78,11 @@ const FlashSale = async ({ isPage = false }: FlashSaleProps = {}) => {
                   LIVE
                 </span>
                 <h2 className="sm:text-3xl text-2xl font-black text-gray-800 tracking-tight">
-                  ফ্ল্যাশ সেল
+                  Flash Sale
                 </h2>
               </div>
               <p className="sm:text-sm text-xs text-gray-600 mt-1 font-medium">
-                {`${maxDiscount}% পর্যন্ত ফ্ল্যাশ সেল ডিল উপভোগ করুন!`}
+                {`Enjoy Flash Sale Deals up to ${maxDiscount}%!`}
               </p>
             </div>
             <div>

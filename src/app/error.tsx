@@ -26,10 +26,10 @@ export default function Error({ error, reset }: ErrorProps) {
 
         <div className="space-y-3">
           <h1 className="text-3xl font-black text-gray-900 tracking-tight">
-            কিছু ভুল হয়েছে!
+            Something went wrong!
           </h1>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
-            দুঃখিত, সার্ভারে একটি সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন অথবা কিছুক্ষণ পর ফিরে আসুন।
+            Sorry, there was a problem with the server. Please try again or come back later.
           </p>
           {process.env.NODE_ENV === "development" && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg text-left overflow-auto max-h-32 text-xs font-mono text-red-600 border border-red-100">
@@ -44,7 +44,7 @@ export default function Error({ error, reset }: ErrorProps) {
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-900 transition-all shadow-lg shadow-black/10 hover:shadow-xl hover:-translate-y-0.5"
           >
             <FiRefreshCw className="w-4 h-4" />
-            আবার চেষ্টা করুন
+            Try Again
           </button>
           
           <Link
@@ -52,7 +52,7 @@ export default function Error({ error, reset }: ErrorProps) {
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-200 text-sm font-bold rounded-xl hover:bg-gray-50 hover:text-black transition-all hover:border-gray-300"
           >
             <FiHome className="w-4 h-4" />
-            হোম পেজ
+            Home Page
           </Link>
         </div>
       </div>

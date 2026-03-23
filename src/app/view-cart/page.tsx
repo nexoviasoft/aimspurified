@@ -16,7 +16,7 @@ function ViewCartContent() {
       <div className="min-h-screen bg-gray-50/50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-[3px] border-primary border-t-transparent rounded-full animate-spin" />
-          <p className="text-sm font-medium text-gray-500">লোড হচ্ছে...</p>
+          <p className="text-sm font-medium text-gray-500">Loading...</p>
         </div>
       </div>
     );
@@ -34,16 +34,16 @@ function ViewCartContent() {
               <FiShoppingBag className="w-10 h-10 text-gray-300" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold text-gray-900">আপনার কার্ট খালি</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Your Cart is Empty</h1>
               <p className="text-gray-500">
-                আপনার কার্টে এখনো কোনো পণ্য যোগ করা হয়নি। কেনাকাটা শুরু করতে নিচে ক্লিক করুন।
+                You have not added any products to your cart yet. Click below to start shopping.
               </p>
             </div>
             <Link
               href="/products"
               className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-primary to-primaryDark text-white text-sm font-bold rounded-xl hover:from-primaryDark hover:to-primary transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5"
             >
-              কেনাকাটা করুন
+              Shop Now
             </Link>
           </div>
         </ScrollAnimation>
@@ -55,7 +55,7 @@ function ViewCartContent() {
     <div className="min-h-screen bg-gray-50/50 py-8 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <ScrollAnimation>
-          <h1 className="text-2xl font-bold text-gray-900 mb-6">শপিং কার্ট ({items.length})</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-6">Shopping Cart ({items.length})</h1>
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -78,19 +78,19 @@ function ViewCartContent() {
           <div className="lg:col-span-1">
             <ScrollAnimation delay={0.2}>
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sticky top-24">
-                <h2 className="text-lg font-bold text-gray-900 mb-4">অর্ডার সামারি</h2>
+                <h2 className="text-lg font-bold text-gray-900 mb-4">Order Summary</h2>
                 
                 <div className="space-y-3 mb-5">
                   <div className="flex justify-between items-center text-gray-600 text-sm">
-                    <span>সাবটোটাল</span>
+                    <span>Subtotal</span>
                     <span className="font-bold text-gray-900">{formatteeNumber(subtotal)} ৳</span>
                   </div>
                   <div className="flex justify-between items-center text-gray-600 text-sm">
-                    <span>ডেলিভারি চার্জ</span>
-                    <span className="text-xs text-gray-500">(চেকআউটে যুক্ত হবে)</span>
+                    <span>Delivery Charge</span>
+                    <span className="text-xs text-gray-500">(Calculated at checkout)</span>
                   </div>
                   <div className="pt-3 border-t border-gray-100 flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">সর্বমোট</span>
+                    <span className="text-base font-bold text-gray-900">Total</span>
                     <span className="text-lg font-black text-gray-900">{formatteeNumber(subtotal)} ৳</span>
                   </div>
                 </div>
@@ -99,12 +99,12 @@ function ViewCartContent() {
                   href="/checkout"
                   className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primaryDark text-white text-sm font-bold rounded-lg hover:from-primaryDark hover:to-primary transition-all shadow-md shadow-primary/20 hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  চেকআউট করুন
+                  Proceed to Checkout
                   <FiArrowRight className="w-4 h-4" />
                 </Link>
                 
                 <p className="text-[10px] text-center text-gray-400 mt-3">
-                  ট্যাক্স এবং শিপিং খরচ চেকআউট পেজে গণনা করা হবে
+                  Taxes and shipping costs are calculated at checkout
                 </p>
               </div>
             </ScrollAnimation>
@@ -122,7 +122,7 @@ export default function ViewCartPage() {
         <div className="min-h-screen bg-gray-50/50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-3">
             <div className="w-8 h-8 border-[3px] border-primary border-t-transparent rounded-full animate-spin" />
-            <p className="text-sm font-medium text-gray-500">লোড হচ্ছে...</p>
+            <p className="text-sm font-medium text-gray-500">Loading...</p>
           </div>
         </div>
       }

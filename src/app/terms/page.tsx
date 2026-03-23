@@ -12,20 +12,20 @@ import type { PolicyPage } from "@/types/policy";
 
 const faqs = [
   {
-    q: "অর্ডার কনফার্ম হয়েছে কিনা বুঝবো কীভাবে?",
-    a: "অর্ডার সফলভাবে কনফার্ম হলে SMS/ইমেইল নোটিফিকেশন বা আপনার একাউন্ট ড্যাশবোর্ডে স্ট্যাটাস আপডেট দেখতে পাবেন। শুধু কার্টে থাকা মানে কনফার্ম না।",
+    q: "How do I know if the order is confirmed?",
+    a: "If the order is successfully confirmed, you will receive an SMS/email notification or see a status update in your account dashboard. Just being in the cart does not mean it is confirmed.",
   },
   {
-    q: "পেমেন্ট ফেল হলে বা ডাবল ডেবিট হলে কী হবে?",
-    a: "ফেল ট্রানজ্যাকশন বা ডুপ্লিকেট ডেবিট হলে গেটওয়ে/ব্যাংকের ভেরিফিকেশন শেষে অতিরিক্ত এমাউন্ট রিফান্ড করা হবে। প্রসেসিং টাইম ব্যাংকের নীতির উপর নির্ভর করে।",
+    q: "What happens if a payment fails or there is a double debit?",
+    a: "In case of a failed transaction or duplicate debit, the excess amount will be refunded after verification by the gateway/bank. Processing time depends on the bank's policy.",
   },
   {
-    q: "আমি কি অর্ডার ক্যানসেল করতে পারবো?",
-    a: "ডেলিভারির আগে প্রসেসিং স্ট্যাটাসের উপর নির্ভর করে অর্ডার ক্যানসেল রিকোয়েস্ট করা যায়। কনফার্মেশন হলে রিফান্ড/অ্যাডজাস্টমেন্ট নীতি প্রযোজ্য হবে।",
+    q: "Can I cancel an order?",
+    a: "An order cancellation request can be made before delivery depending on the processing status. Once confirmed, the refund/adjustment policy will apply.",
   },
   {
-    q: "টার্মস পরিবর্তন হলে আমাকে কি আলাদা করে জানাবে?",
-    a: "গুরুত্বপূর্ণ পরিবর্তন হলে আমরা সাইটে আপডেটেড টার্মস প্রকাশ করি এবং প্রয়োজনে নোটিফিকেশন বা ব্যানারের মাধ্যমে হাইলাইট করি।",
+    q: "Will I be notified separately if the terms change?",
+    a: "If there are significant changes, we publish the updated terms on the site and highlight them via notifications or banners if necessary.",
   },
 ];
 
@@ -102,23 +102,19 @@ const TermsPage = () => {
                 Terms & Conditions
               </span>
               <h1 className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-tight">
-                আমাদের সেবা ব্যবহারের শর্তাবলী
+                Terms of Service
               </h1>
               <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-                আমাদের ই‑কমার্স প্ল্যাটফর্ম থেকে অর্ডার করা, একাউন্ট তৈরি করা বা
-                যেকোনো সেবা ব্যবহার করার আগে নিচের শর্তগুলো ভালোভাবে পড়ে নিন।
-                এই শর্তগুলোর সাথে আপনি সম্মত থাকলে তবেই আমাদের সেবা ব্যবহার
-                করবেন।
+                Read the following terms carefully before ordering, creating an account, or using any services from our e-commerce platform. Use our services only if you agree to these terms.
               </p>
             </div>
             <div className="rounded-2xl bg-white shadow-sm border border-gray-200 px-5 py-4 text-xs text-gray-700 max-w-xs">
               <p className="font-semibold text-gray-900 mb-1">
-                সারাংশ (সংক্ষিপ্ত)
+                Summary
               </p>
               <p className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                অর্ডার, পেমেন্ট, ডেলিভারি ও রিটার্ন – সব নীতি এই পেইজে ব্যাখ্যা
-                করা আছে।
+                Order, payment, delivery, and return – all policies are explained on this page.
               </p>
             </div>
           </div>
@@ -128,36 +124,33 @@ const TermsPage = () => {
               <div className="flex items-center gap-2 mb-1.5">
                 <FiFileText className="text-primary text-sm" />
                 <p className="text-xs font-semibold text-gray-900">
-                  অর্ডার ও প্রাইসিং
+                  Order & Pricing
                 </p>
               </div>
               <p className="text-xs text-gray-600">
-                প্রাইস, স্টক ও অফার আপডেট হতে পারে; কনফার্মেশন ছাড়া অর্ডার
-                ফাইনাল নয়।
+                Price, stock, and offers may be updated; orders are not final without confirmation.
               </p>
             </div>
             <div className="rounded-2xl bg-white border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-1.5">
                 <FiCreditCard className="text-primary text-sm" />
                 <p className="text-xs font-semibold text-gray-900">
-                  পেমেন্ট ও সিকিউরিটি
+                  Payment & Security
                 </p>
               </div>
               <p className="text-xs text-gray-600">
-                অনলাইন পেমেন্ট সার্টিফায়েড গেটওয়ের মাধ্যমে প্রসেস হয়; কার্ড ডেটা
-                আমাদের সার্ভারে থাকে না।
+                Online payments are processed through certified gateways; card data is not stored on our servers.
               </p>
             </div>
             <div className="rounded-2xl bg-white border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-1.5">
                 <FiShield className="text-primary text-sm" />
                 <p className="text-xs font-semibold text-gray-900">
-                  রিটার্ন ও রিফান্ড
+                  Return & Refund
                 </p>
               </div>
               <p className="text-xs text-gray-600">
-                নির্দিষ্ট নীতিমালা অনুযায়ী রিটার্ন ও রিফান্ড প্রযোজ্য; বিস্তারিত
-                আলাদা পেইজে দেওয়া আছে।
+                Return and refund are applicable according to specific policies; details are given on a separate page.
               </p>
             </div>
           </section>
@@ -165,7 +158,7 @@ const TermsPage = () => {
 
         <section className="rounded-xl bg-white border border-gray-200 px-6 py-8 md:px-8 md:py-9 shadow-[0_4px_12px_rgba(15,23,42,0.08)] space-y-8 text-gray-800">
           {isLoading && !termsContent && (
-            <p className="text-sm text-gray-500">টার্মস & কন্ডিশন লোড হচ্ছে...</p>
+            <p className="text-sm text-gray-500">Loading Terms & Conditions...</p>
           )}
 
           {termsContent ? (
@@ -378,11 +371,10 @@ const TermsPage = () => {
         <section className="space-y-5">
           <div>
             <h2 className="text-lg md:text-xl font-semibold text-gray-900">
-              টার্মস সম্পর্কিত প্রায়শই জিজ্ঞাসিত প্রশ্ন
+              Frequently Asked Questions (Terms)
             </h2>
             <p className="text-sm text-gray-600">
-              অর্ডার, পেমেন্ট ও নীতিমালা নিয়ে সাধারণ কিছু প্রশ্নের উত্তর নিচে
-              দেওয়া হলো।
+              Common questions about orders, payments, and policies are answered below.
             </p>
           </div>
           <div className="space-y-3">

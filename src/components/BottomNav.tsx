@@ -33,7 +33,7 @@ const BottomNav = () => {
           <span className={iconBase}>
             <GoHome />
           </span>
-          <span className={premiumLabel}>হোম</span>
+          <span className={premiumLabel}>Home</span>
         </Link>
 
         {/* Flash Sale */}
@@ -48,7 +48,7 @@ const BottomNav = () => {
           <span className={iconBase}>
             <IoFlash />
           </span>
-          <span className={premiumLabel}>ফ্ল্যাশ সেল</span>
+          <span className={premiumLabel}>Flash Sale</span>
         </Link>
 
         {/* Products */}
@@ -63,13 +63,13 @@ const BottomNav = () => {
           <span className={iconBase}>
             <TbCategoryPlus />
           </span>
-          <span className={premiumLabel}>পণ্যসমূহ</span>
+          <span className={premiumLabel}>Products</span>
         </Link>
 
         {/* Cart */}
         {/* <div className={`${itemBase} text-gray-700 hover:text-primary`}>
           <CartDrawer />
-          <span className={premiumLabel}>কার্ট</span>
+          <span className={premiumLabel}>Cart</span>
         </div> */}
 
         {/* Order Tracking */}
@@ -84,7 +84,7 @@ const BottomNav = () => {
           <span className={iconBase}>
             <MdOutlineLocalShipping />
           </span>
-          <span className={premiumLabel}>অর্ডার ট্র্যাকিং</span>
+          <span className={premiumLabel}>Order Tracking</span>
         </Link>
 
         {/* Account */}
@@ -99,7 +99,7 @@ const BottomNav = () => {
           <span className={iconBase}>
             <FaRegUser />
           </span>
-          <span className={premiumLabel}>অ্যাকাউন্ট</span>
+          <span className={premiumLabel}>Account</span>
         </Link>
       </div>
     </div>

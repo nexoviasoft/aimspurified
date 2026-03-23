@@ -22,13 +22,13 @@ const ForYou = async () => {
     <section className="max-w-7xl mx-auto px-5 overflow-hidden md:pt-10 pt-5">
       <div className=" md:mb-5 mb-3 flex items-center justify-between gap-5">
         <h1 className=" sm:text-2xl text-xl font-bold text-primary">
-          আমাদের কালেকশন
+          Our Collection
         </h1>
         <Link
           href={"/products"}
           className=" text-primary underline underline-offset-4 hover:text-gray-700 cursor-pointer transition-all font-medium"
         >
-          সব পণ্য দেখুন
+          View All Products
         </Link>
       </div>
 
@@ -39,7 +39,7 @@ const ForYou = async () => {
           href={"/products"}
           className="mt-5 text-center bg-primary hover:bg-gray-800 max-w-max text-white px-10 py-1.5 rounded cursor-pointer"
         >
-          আরও দেখুন
+          View More
         </Link>
       </div>
     </section>

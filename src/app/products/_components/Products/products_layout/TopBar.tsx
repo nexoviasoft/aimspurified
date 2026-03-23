@@ -38,34 +38,34 @@ const TopBar = () => {
             value: currentSort,
             label:
               currentSort === "Sort by popularity"
-                ? "জনপ্রিয়তার ভিত্তিতে"
+                ? "Sort by popularity"
                 : currentSort === "Sort by average rating"
-                  ? "গড় রেটিং অনুযায়ী"
+                  ? "Sort by average rating"
                   : currentSort === "Sort by latest"
-                    ? "সর্বশেষ পণ্য আগে"
+                    ? "Sort by latest"
                     : currentSort === "Sort by price: low to high"
-                      ? "দাম কম থেকে বেশি"
+                      ? "Sort by price: low to high"
                       : currentSort === "Sort by price: high to low"
-                        ? "দাম বেশি থেকে কম"
-                        : "ডিফল্ট সাজানো",
+                        ? "Sort by price: high to low"
+                        : "Default Sorting",
           }}
           style={{ width: 220 }}
           onChange={handleChange}
           options={[
-            { value: "Default Sorting", label: "ডিফল্ট সাজানো" },
-            { value: "Sort by popularity", label: "জনপ্রিয়তার ভিত্তিতে" },
+            { value: "Default Sorting", label: "Default Sorting" },
+            { value: "Sort by popularity", label: "Sort by popularity" },
             {
               value: "Sort by average rating",
-              label: "গড় রেটিং অনুযায়ী",
+              label: "Sort by average rating",
             },
-            { value: "Sort by latest", label: "সর্বশেষ পণ্য আগে" },
+            { value: "Sort by latest", label: "Sort by latest" },
             {
               value: "Sort by price: low to high",
-              label: "দাম কম থেকে বেশি",
+              label: "Sort by price: low to high",
             },
             {
               value: "Sort by price: high to low",
-              label: "দাম বেশি থেকে কম",
+              label: "Sort by price: high to low",
             },
           ]}
         />

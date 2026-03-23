@@ -51,21 +51,21 @@ const CustomerInfo = ({
         {/* customer info start */}
         <div className="flex flex-col gap-3  border border-gray-100 bg-white p-4 shadow-sm rounded-lg">
           <h1 className="text-base font-bold text-gray-900 border-b border-gray-100 pb-2">
-            কাস্টমার তথ্য
+            Customer Information
           </h1>
           <div className="flex flex-col gap-3">
             <div className="grid min-[550px]:grid-cols-2 grid-cols-1 gap-3">
               <input
                 className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
                 type="email"
-                placeholder="ইমেইল (optional)"
+                placeholder="Email (optional)"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
                 type="text"
-                placeholder="সম্পূর্ণ নাম *"
+                placeholder="Full Name *"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -75,14 +75,14 @@ const CustomerInfo = ({
               <input
                 className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
                 type="text"
-                placeholder="এলাকা / সিটি"
+                placeholder="Area / City"
                 value={district || ""}
                 onChange={(e) => setDistrict?.(e.target.value)}
               />
               <input
                 className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
                 type="text"
-                placeholder="সম্পূর্ণ ঠিকানা *"
+                placeholder="Full Address *"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
@@ -93,7 +93,7 @@ const CustomerInfo = ({
                 className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
                 type="tel"
                 inputMode="numeric"
-                placeholder="ফোন নম্বর *"
+                placeholder="Phone Number *"
                 value={phone}
                 onChange={(e) => {
                   const onlyDigits = e.target.value.replace(/\D/g, "");
@@ -110,7 +110,7 @@ const CustomerInfo = ({
         <div className="grid md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-3 border border-gray-100 bg-white p-4 shadow-sm rounded-lg">
             <h2 className="text-base font-bold text-gray-900 border-b border-gray-100 pb-2">
-              ডেলিভারি টাইপ
+              Delivery Type
             </h2>
             <div className="flex flex-col gap-2">
               <select
@@ -122,17 +122,17 @@ const CustomerInfo = ({
                 required
               >
                 <option value="" disabled>
-                  ডেলিভারি টাইপ নির্বাচন করুন *
+                  Select Delivery Type *
                 </option>
-                <option value="inside">ঢাকার ভিতরে (60৳)</option>
-                <option value="outside">ঢাকার বাইরে (120৳)</option>
+                <option value="inside">Inside Dhaka (60৳)</option>
+                <option value="outside">Outside Dhaka (120৳)</option>
               </select>
             </div>
           </div>
 
           <div className="flex flex-col gap-3  border border-gray-100 bg-white p-4 shadow-sm rounded-lg">
             <h2 className="text-base font-bold text-gray-900 border-b border-gray-100 pb-2">
-              পেমেন্ট পদ্ধতি
+              Payment Method
             </h2>
             <div className="flex flex-col gap-2">
               <label className={`flex items-center gap-3 p-3  border cursor-pointer transition-all rounded-lg ${paymentMethod === "cod" ? "border-primary bg-primary/5" : "border-gray-100 hover:border-gray-200"}`}>
@@ -144,7 +144,7 @@ const CustomerInfo = ({
                   onChange={() => setPaymentMethod?.("cod")}
                   className="accent-primary w-4 h-4"
                 />
-                <span className="text-sm font-medium">ক্যাশ অন ডেলিভারি</span>
+                <span className="text-sm font-medium">Cash on Delivery</span>
               </label>
             </div>
           </div>
@@ -156,7 +156,7 @@ const CustomerInfo = ({
           className="bg-black hover:bg-gray-900 transition-all text-white text-sm font-bold py-3.5 flex items-center justify-center gap-2 disabled:opacity-70 shadow-md shadow-black/10 hover:shadow-lg hover:-translate-y-0.5 mt-2 !rounded-full"
         >
           <IoCartOutline size={18} />
-          {submitting ? "অর্ডার হচ্ছে..." : "অর্ডার কনফার্ম করুন"}
+          {submitting ? "Ordering..." : "Confirm Order"}
         </button>
       </form>
     </section>

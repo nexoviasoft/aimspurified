@@ -106,10 +106,10 @@ const ActiveFilter: React.FC = () => {
       <div className="flex items-center justify-between gap-3">
         <div>
           <h2 className="text-sm font-semibold tracking-wide text-gray-900">
-            সক্রিয় ফিল্টার
+            Active Filters
           </h2>
           <p className="text-xs text-gray-500">
-            নিচের ফিল্টার পরিবর্তন করে রেজাল্ট ঠিক করে নিন।
+            Change the filters below to refine the results.
           </p>
         </div>
         {filterItems.length > 0 && (
@@ -117,14 +117,14 @@ const ActiveFilter: React.FC = () => {
             onClick={handleClearAll}
             className="text-xs font-medium text-gray-700 hover:text-black hover:underline underline-offset-4"
           >
-            সব মুছে দিন
+            Clear All
           </button>
         )}
       </div>
       <div className="flex flex-wrap gap-2">
         {filterItems.length === 0 && (
           <div className="rounded-full border border-dashed border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-500">
-            কোনো ফিল্টার প্রয়োগ করা হয়নি
+            No filters applied
           </div>
         )}
         {filterItems.map(({ label, key }) => (

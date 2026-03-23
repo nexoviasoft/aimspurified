@@ -16,10 +16,10 @@ export default function NotFound() {
             404
           </h1>
           <h2 className="text-xl font-bold text-gray-800">
-            পৃষ্ঠাটি খুঁজে পাওয়া যায়নি
+            Page not found
           </h2>
           <p className="text-gray-500 text-sm leading-relaxed">
-            দুঃখিত, আপনি যে পৃষ্ঠাটি খুঁজছেন তা সম্ভবত সরানো হয়েছে বা এর অস্তিত্ব নেই।
+            Sorry, the page you are looking for has likely been moved or does not exist.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function NotFound() {
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-900 transition-all shadow-lg shadow-black/10 hover:shadow-xl hover:-translate-y-0.5"
           >
             <FiHome className="w-4 h-4" />
-            হোম পেজে ফিরে যান
+            Back to Home page
           </Link>
         </div>
       </div>

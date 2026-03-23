@@ -52,11 +52,11 @@ const FlashSaleBanner = async () => {
             <IoFlash className="text-2xl animate-pulse" />
             <div className="text-left">
               <h3 className="font-bold text-base md:text-lg">
-                ⚡ ফ্ল্যাশ সেল চলছে! ⚡
+                ⚡ Flash Sale is Live! ⚡
               </h3>
               <p className="text-xs md:text-sm opacity-90">
-                সীমিত সময়ের জন্য{" "}
-                <span className="font-semibold">{maxDiscount}%</span> পর্যন্ত ছাড়!
+                For a limited time{" "}
+                <span className="font-semibold">{maxDiscount}%</span> Off!
               </p>
             </div>
           </div>

@@ -178,7 +178,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
     ? `https://wa.me/${encodeURIComponent(
         ownerPhone.replace(/[^0-9]/g, ""),
       )}?text=${encodeURIComponent(
-        `প্রিয় স্যার, এই পণ্যটি সম্পর্কে কিছু জানতে চাই: ${product?.title} - ${shareUrl}`,
+        `Dear Sir, I want to know something about this product: ${product?.title} - ${shareUrl}`,
       )}`
     : null;
 
@@ -192,7 +192,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
       <div className="flex flex-wrap items-center gap-3 min-[400px]:gap-4 text-xs sm:text-sm">
         <div className="flex items-center gap-2">
           <span className="text-[11px] uppercase tracking-wide text-gray-500">
-            ক্যাটাগরি
+            Category
           </span>
           <div className="flex flex-wrap gap-1">
             {product?.categories?.map((category, index) => (
@@ -214,7 +214,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
             defaultValue={calculateAverageRating(product?.reviews)}
           />
           <p className="text-xs sm:text-sm text-gray-600">
-            ({product?.reviews.length} টি রিভিউ)
+            ({product?.reviews.length} Reviews)
           </p>
         </div>
       </div>
@@ -257,7 +257,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
           </div>
           {!selectedSize && (
             <p className="text-[11px] text-red-600 mt-1">
-              Size নির্বাচন করুন
+              Select Size
             </p>
           )}
         </div>
@@ -344,11 +344,11 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
               quantity < 1;
             if (invalid) {
               e.preventDefault();
-              toast.error("Size এবং Quantity নির্বাচন করুন");
+              toast.error("Select Size and Quantity");
             }
           }}
         >
-          <span>এখনই কিনুন</span>
+          <span>Buy Now</span>
           <GoArrowUpRight className="sm:text-2xl text-xl" />
         </Link>
       </div>
@@ -364,13 +364,13 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
             window.open(whatsappQuestionUrl, "_blank", "noopener,noreferrer");
           }}
         >
-          <FaRegQuestionCircle /> <span>প্রশ্ন করুন</span>
+          <FaRegQuestionCircle /> <span>Ask Question</span>
         </button>
         <Link
           href="/refund-and-return-policy"
           className=" flex items-center gap-1 hover:text-primary transition-all"
         >
-          <FaTruckFast /> <span>ডেলিভারি ও রিটার্ন</span>
+          <FaTruckFast /> <span>Delivery & Return</span>
         </Link>
         <div className="relative">
           <button
@@ -379,7 +379,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
             onClick={() => setIsShareOpen((prev) => !prev)}
           >
             <GoShareAndroid />
-            <span> শেয়ার করুন</span>
+            <span> Share</span>
           </button>
           {isShareOpen && (
             <div className="absolute z-20 mt-2 w-44 rounded-lg border border-gray-200 bg-white shadow-lg p-2 flex flex-col gap-1">
@@ -395,7 +395,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
                   setIsShareOpen(false);
                 }}
               >
-                Facebook এ শেয়ার করুন
+                Share on Facebook
               </button>
               <button
                 type="button"
@@ -409,7 +409,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
                   setIsShareOpen(false);
                 }}
               >
-                WhatsApp এ শেয়ার করুন
+                Share on WhatsApp
               </button>
             </div>
           )}
@@ -421,8 +421,8 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
             <FaRegClock size={20} />
           </div>
           <p>
-            আনুমানিক ডেলিভারি সময়:
-            <strong> ২-৩ দিন</strong>
+            Estimated Delivery Time:
+            <strong> 2-3 Days</strong>
           </p>
         </div>
         <div className="flex flex-col items-center justify-center text-center border border-gray-200 bg-gray-50 px-5 py-3 rounded-xl">
@@ -430,8 +430,8 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
             <TbTruckReturn size={23} />
           </div>
           <p>
-            পণ্য কেনার পর <strong>৭ দিনের</strong> মধ্যে রিটার্ন করা যাবে।
-            শুল্ক ও ট্যাক্স ফিরতযোগ্য নয়।
+            Returnable within <strong>7 days</strong> of purchase.
+            Duties & Taxes are non-refundable.
           </p>
         </div>
       </div>
@@ -440,7 +440,7 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
           <div className="text-lg sm:text-xl text-gray-600">
             <RiShieldCheckFill />
           </div>
-          <p className="text-sm sm:text-base">নিরাপদ পেমেন্টের নিশ্চয়তা</p>
+          <p className="text-sm sm:text-base">Guaranteed Safe Payment</p>
         </div>
         <div className="flex gap-3">
           <div className="text-3xl bg-gray-100 px-3 text-gray-800 rounded-lg">

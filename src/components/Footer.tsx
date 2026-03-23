@@ -93,16 +93,16 @@ const Footer = () => {
   const email = companyInfo?.email || "";
   // const logoSrc = companyInfo?.companyLogo;
   const fallbackCategories = [
-    { name: "ওয়ালবোর্ড", slug: "wallboard" },
-    { name: "ক্যানভাস প্রিন্ট", slug: "canvas-print" },
-    { name: "দোয়া কার্ড", slug: "dua-card" },
-    { name: "দাওয়া ক্যানভাস", slug: "dawah-canvas" },
-    { name: "ওয়াল হ্যাঙ্গিং", slug: "wall-hanging" },
-    { name: "ইভেন্ট বোর্ড", slug: "event-board" },
-    { name: "প্রচারমূলক জিনিসপত্র", slug: "promo-items" },
-    { name: "উপহার সামগ্রী", slug: "gift-items" },
-    { name: "আনুষাঙ্গিক", slug: "accessories" },
-    { name: "কাস্টম পণ্য", slug: "custom-products" },
+    { name: "Wallboard", slug: "wallboard" },
+    { name: "Canvas Print", slug: "canvas-print" },
+    { name: "Dua Card", slug: "dua-card" },
+    { name: "Dawah Canvas", slug: "dawah-canvas" },
+    { name: "Wall Hanging", slug: "wall-hanging" },
+    { name: "Event Board", slug: "event-board" },
+    { name: "Promo Items", slug: "promo-items" },
+    { name: "Gift Items", slug: "gift-items" },
+    { name: "Accessories", slug: "accessories" },
+    { name: "Custom Products", slug: "custom-products" },
   ];
   const isLoading = isCompanyLoading || isCategoriesLoading;
   const visibleCategories = categories.length ? categories : fallbackCategories;
@@ -147,9 +147,7 @@ const Footer = () => {
           </Link> */}
 
           <p className=" text-[#ffffffe6]">
-            <strong>{companyName}</strong>– আপনার লাইফস্টাইলের জন্য নির্ভরযোগ্য
-            ইকমার্স। আমরা সরবরাহ করি মানসম্পন্ন লাইফস্টাইল পণ্য, দ্রুত ডেলিভারি
-            এবং সন্তুষ্টি নিশ্চিত সেবা।
+            <strong>{companyName}</strong>– Reliable e-commerce for your lifestyle. We provide quality lifestyle products, fast delivery, and guaranteed satisfaction.
           </p>
           <p className=" text-[#ffffffe6]">{branchLocation}</p>
           <p className=" text-[#ffffffe6]">{phone}</p>
@@ -172,7 +170,7 @@ const Footer = () => {
         </div>
         <div className=" grid grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))] w-full gap-2">
           <div className="flex flex-col gap-8 ">
-            <h2 className=" text-white font-medium text-lg">ক্যাটাগরিসমূহ</h2>
+            <h2 className=" text-white font-medium text-lg">Categories</h2>
             <ul className=" text-[#ffffffe6] flex flex-col gap-1">
               {visibleCategories.map((category) => (
                 <Link
@@ -186,116 +184,116 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-8 ">
-            <h2 className=" text-white font-medium text-lg">দরকারী লিঙ্ক</h2>
+            <h2 className=" text-white font-medium text-lg">Useful Links</h2>
             <ul className=" text-[#ffffffe6] flex flex-col gap-1">
               <Link
                 href="/"
                 className="  transition-all ease-linear duration-150"
               >
-                হোম
+                Home
               </Link>
               <Link
                 href="/"
                 className="  transition-all ease-linear duration-150"
               >
-                সংগ্রহ
+                Collections
               </Link>
               {/* <Link
                 href="/"
                 className=" hover:text-primary transition-all ease-linear duration-150"
               >
-                ব্লগ
+                Blog
               </Link> */}
               <Link
                 href="/"
                 className="  transition-all ease-linear duration-150"
               >
-                অফার
+                Offers
               </Link>
               <Link
                 href="/"
                 className="  transition-all ease-linear duration-150"
               >
-                অনুসন্ধান
+                Search
               </Link>
             </ul>
           </div>
           <div className="flex flex-col gap-8 ">
-            <h2 className=" text-white font-medium text-lg">সহায়তা কেন্দ্র</h2>
+            <h2 className=" text-white font-medium text-lg">Help Center</h2>
             <ul className=" text-[#ffffffe6] flex flex-col gap-1">
               <Link
                 href="/my-account/dashboard"
                 className="  transition-all ease-linear duration-150"
               >
-                আমার অ্যাকাউন্ট
+                My Account
               </Link>
               <Link
                 href="/my-account/orders"
                 className="  transition-all ease-linear duration-150"
               >
-                আমার অর্ডার
+                My Orders
               </Link>
               {/* <Link
                 href="/view-cart"
                 className="  transition-all ease-linear duration-150"
               >
-                ইচ্ছার তালিকা
+                Wishlist
               </Link> */}
               {/* <Link
                 href="/contact-us"
                 className=" hover:text-primary transition-all ease-linear duration-150"
               >
-                প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী
+                FAQs
               </Link> */}
               <Link
                 href="/contact-us"
                 className="  transition-all ease-linear duration-150"
               >
-                আমাদের সাথে যোগাযোগ করুন
+                Contact Us
               </Link>
             </ul>
           </div>
           <div className="flex flex-col gap-8 ">
             <h2 className=" text-white font-medium text-lg">
-              লিগ্যাল ইনফরমেশন
+              Legal Information
             </h2>
             <ul className=" text-[#ffffffe6] flex flex-col gap-1">
               <Link
                 href="/terms"
                 className="  transition-all ease-linear duration-150"
               >
-                টার্মস এবং কন্ডিশন
+                Terms & Conditions
               </Link>
               <Link
                 href="/privacy-policy"
                 className="  transition-all ease-linear duration-150"
               >
-                প্রাইভেসি পলিসি
+                Privacy Policy
               </Link>
               <Link
                 href="/refund-and-return-policy"
                 className="  transition-all ease-linear duration-150"
               >
-                রিফান্ড এবং রিটার্ন পলিসি
+                Refund & Return Policy
               </Link>
               {/* <Link
                 href="/"
                 className=" hover:text-primary transition-all ease-linear duration-150"
               >
-                ওয়ারেন্টি সার্ভিসেস
+                Warranty Services
               </Link>
               <Link
                 href="/"
                 className=" hover:text-primary transition-all ease-linear duration-150"
               >
                 {" "}
-                শিপিং মেথড
+                Shipping Method
               </Link>
               <Link
                 href="/"
                 className=" hover:text-primary transition-all ease-linear duration-150"
               >
-                পেমেন্ট মেথড
+                Payment Method
               </Link> */}
             </ul>
           </div>
@@ -305,8 +303,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-5 sm:py-4 py-3 flex items-center justify-between gap-2 min-[700px]:flex-row flex-col">
           <div className="flex flex-col gap-1 min-[700px]:items-start items-center">
             <p className="text-[#ffffffe6] text-[15px]">
-              কপিরাইট © {new Date().getFullYear()} {companyName} সর্বস্বত্ব
-              সংরক্ষিত
+              Copyright © {new Date().getFullYear()} {companyName} All Rights Reserved
             </p>
             <p className="text-[#ffffffe6] text-[15px]">
               Developed by{" "}

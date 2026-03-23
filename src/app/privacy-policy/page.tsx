@@ -8,20 +8,20 @@ import ScrollAnimation from "@/components/shared/ScrollAnimation";
 
 const faqs = [
   {
-    q: "আমার তথ্য কি নিরাপদ?",
-    a: "হ্যাঁ। আপনার দেওয়া তথ্য শুধুমাত্র অর্ডার প্রসেসিং, ডেলিভারি এবং সাপোর্টের জন্য ব্যবহার করা হয় এবং অনুমোদিত সিস্টেমের বাইরে শেয়ার করা হয় না।",
+    q: "Is my information safe?",
+    a: "Yes. The information you provide is used only for order processing, delivery, and support, and is not shared outside authorized systems.",
   },
   {
-    q: "পেমেন্ট করার সময় কার্ড ডেটা কোথায় যায়?",
-    a: "কার্ড ডেটা আমাদের সার্ভারে থাকে না। এটি সরাসরি ব্যাংক বা সার্টিফায়েড পেমেন্ট গেটওয়ের সিকিউর সার্ভারে প্রসেস হয়। আমরা কেবল ট্রানজ্যাকশন রেফারেন্স সংরক্ষণ করি।",
+    q: "Where does card data go during payment?",
+    a: "Card data does not stay on our servers. It is processed directly on the secure servers of banks or certified payment gateways. We only store transaction references.",
   },
   {
-    q: "ডেলিভারি পার্টনার কতটুকু তথ্য দেখতে পায়?",
-    a: "ডেলিভারি পার্টনার কেবল আপনার নাম, মোবাইল নম্বর এবং ডেলিভারি ঠিকানা দেখতে পারে যাতে পণ্য সঠিকভাবে পৌঁছে দিতে পারে।",
+    q: "How much information does the delivery partner see?",
+    a: "The delivery partner can only see your name, mobile number, and delivery address to deliver the product correctly.",
   },
   {
-    q: "আমি কি আমার ডেটা ডিলিট বা আপডেট করতে পারবো?",
-    a: "হ্যাঁ, আপনি প্রোফাইল ডেটা আপডেট করতে পারবেন এবং প্রয়োজনে সাপোর্ট টিমের মাধ্যমে নির্দিষ্ট ডেটা ডিলিট বা মার্কেটিং মেসেজ বন্ধ করার অনুরোধ করতে পারবেন।",
+    q: "Can I delete or update my data?",
+    a: "Yes, you can update your profile data and, if necessary, request the support team to delete specific data or stop marketing messages.",
   },
 ];
 
@@ -92,15 +92,13 @@ const PrivacyPolicyPage = () => {
       <ScrollAnimation>
         <header className="space-y-3 text-center md:text-left">
           <span className="inline-block text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary mb-2">
-            প্রাইভেসি ও সিকিউরিটি
+            Privacy & Security
           </span>
           <h1 className="text-2xl md:text-3xl font-semibold text-primary">
-            প্রাইভেসি পলিসি ও ডেটা সিকিউরিটি
+            Privacy Policy & Data Security
           </h1>
           <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-            আপনার ব্যক্তিগত তথ্য, অর্ডার ডেটা এবং পেমেন্ট ইনফরমেশন আমাদের কাছে
-            সর্বোচ্চ অগ্রাধিকার পায়। নিচে কিভাবে আমরা আপনার ডেটা সংগ্রহ, ব্যবহার
-            এবং সুরক্ষিত রাখি তা বিস্তারিত দেওয়া হলো।
+            Your personal information, order data, and payment information are our top priority. Below are details on how we collect, use, and secure your data.
           </p>
         </header>
       </ScrollAnimation>
@@ -108,7 +106,7 @@ const PrivacyPolicyPage = () => {
       <ScrollAnimation delay={0.1}>
         <section className="rounded-2xl bg-white border border-gray-200 px-6 py-8 md:px-8 md:py-9 shadow-sm space-y-8 text-gray-800">
           {isLoading && !policyContent && (
-            <p className="text-sm text-gray-500">প্রাইভেসি পলিসি লোড হচ্ছে...</p>
+            <p className="text-sm text-gray-500">Loading privacy policy...</p>
           )}
 
           {policyContent ? (
@@ -321,10 +319,10 @@ const PrivacyPolicyPage = () => {
       <section className="space-y-5">
         <div>
           <h2 className="text-lg md:text-xl font-semibold text-gray-900">
-            প্রাইভেসি সম্পর্কিত প্রায়শই জিজ্ঞাসিত প্রশ্ন
+            Frequently Asked Questions regarding Privacy
           </h2>
           <p className="text-sm text-gray-600">
-            আপনার কনফিউশন কমানোর জন্য কিছু সাধারণ প্রশ্নের উত্তর নিচে দেওয়া হলো।
+            Below are answers to some common questions to reduce your confusion.
           </p>
         </div>
         <div className="space-y-3">
@@ -357,21 +355,20 @@ const PrivacyPolicyPage = () => {
       <ScrollAnimation delay={0.3}>
       <section className="flex flex-col md:flex-row items-center justify-between gap-4 pt-2 border-t border-gray-100">
         <p className="text-sm text-gray-700 text-center md:text-left">
-          আপনার প্রাইভেসি বা ডেটা সিকিউরিটি নিয়ে আরও প্রশ্ন থাকলে আমাদের টিমের
-          সাথে সরাসরি যোগাযোগ করুন।
+          If you have further questions about your privacy or data security, please contact our team directly.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="/contact-us"
             className="px-5 py-2.5 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium"
           >
-            প্রাইভেসি নিয়ে কথা বলতে চাই
+            I want to talk about privacy
           </a>
           <a
             href="tel:01700000000"
             className="px-5 py-2.5 rounded-lg border border-primary text-primary hover:bg-primary/10 text-sm font-medium"
           >
-            সরাসরি কল করুন
+            Call Directly
           </a>
         </div>
       </section>

@@ -57,7 +57,7 @@ export default function RegisterPage() {
     return s;
   }, [password]);
   const scoreLabel =
-    ["দুর্বল", "সহনীয়", "ভাল", "মজবুত", "খুব মজবুত"][passScore] || "দুর্বল";
+    ["Weak", "Fair", "Good", "Strong", "Very Strong"][passScore] || "Weak";
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,24 +65,24 @@ export default function RegisterPage() {
     setLoading(true);
 
     if (!full_name.trim() || !email.trim() || !password.trim()) {
-      setError("নাম, ইমেইল এবং পাসওয়ার্ড প্রয়োজন");
+      setError("Name, email and password are required");
       setLoading(false);
       return;
     }
 
     if (!/\S+@\S+\.\S+/.test(email)) {
-      setError("অনুগ্রহ করে সঠিক ইমেইল লিখুন");
+      setError("Please enter a valid email");
       setLoading(false);
       return;
     }
 
     if (password.length < 6) {
-      setError("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে");
+      setError("Password must be at least 6 characters");
       setLoading(false);
       return;
     }
     if (password !== confirm) {
-      setError("পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না");
+      setError("Passwords do not match");
       setLoading(false);
       return;
     }
@@ -93,12 +93,12 @@ export default function RegisterPage() {
     });
 
     if (res.success) {
-      toast.success("রেজিস্ট্রেশন সফল হয়েছে।");
+      toast.success("Registration successful.");
       // AuthContext.register will store token & session if backend returned it,
       // so we can send the user directly to their dashboard.
       window.location.href = "/my-account/dashboard";
     } else {
-      setError(res.error || "রেজিস্ট্রেশন ব্যর্থ হয়েছে");
+      setError(res.error || "Registration failed");
     }
     setLoading(false);
   };
@@ -110,14 +110,14 @@ export default function RegisterPage() {
           <div className="px-6 pt-6 text-center">
             <div className="inline-block mb-3">
               <span className="text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary">
-                নতুন অ্যাকাউন্ট
+                New Account
               </span>
             </div>
-            <h2 className="text-3xl font-black text-primary">রেজিস্টার</h2>
+            <h2 className="text-3xl font-black text-primary">Register</h2>
           </div>
           <div className="p-6 border-t border-gray-100">
             <p className="text-sm text-gray-600 text-center mb-4">
-              দ্রুত ডেলিভারি, নিরাপদ পেমেন্ট, সন্তুষ্টি গ্যারান্টি
+              Fast delivery, secure payment, satisfaction guaranteed
             </p>
             {error && (
               <div className="mb-3 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded px-3 py-2">
@@ -131,7 +131,7 @@ export default function RegisterPage() {
                 </span>
                 <Input
                   type="text"
-                  placeholder="পূর্ণ নাম"
+                  placeholder="Full Name"
                   onChange={(e) => setFullName(e.target.value)}
                   style={{ paddingLeft: "34px" }}
                 />
@@ -142,7 +142,7 @@ export default function RegisterPage() {
                 </span>
                 <Input
                   type="email"
-                  placeholder="ইমেইল"
+                  placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                   style={{ paddingLeft: "34px" }}
                 />
@@ -153,7 +153,7 @@ export default function RegisterPage() {
                 </span>
                 <Input
                   type={showPassword ? "text" : "password"}
-                  placeholder="পাসওয়ার্ড"
+                  placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                   style={{ paddingLeft: "34px", paddingRight: "40px" }}
                 />
@@ -173,7 +173,7 @@ export default function RegisterPage() {
                     />
                   </div>
                   <p className="text-xs text-gray-600 mt-1">
-                    পাসওয়ার্ড শক্তি: {scoreLabel}
+                    Password Strength: {scoreLabel}
                   </p>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function RegisterPage() {
                 </span>
                 <Input
                   type={showConfirm ? "text" : "password"}
-                  placeholder="কনফার্ম পাসওয়ার্ড"
+                  placeholder="Confirm Password"
                   onChange={(e) => setConfirm(e.target.value)}
                   style={{ paddingLeft: "34px", paddingRight: "40px" }}
                 />
@@ -201,22 +201,22 @@ export default function RegisterPage() {
                 type="submit"
                 disabled={!canSubmit}
               >
-                {loading ? "রেজিস্টার হচ্ছে..." : "রেজিস্টার"}
+                {loading ? "Registering..." : "Register"}
               </button>
             </form>
             <div className="flex items-center gap-3 my-4">
               <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-xs text-gray-500">অথবা</span>
+              <span className="text-xs text-gray-500">or</span>
               <div className="flex-1 h-px bg-gray-200" />
             </div>
         
             <div className="flex items-center justify-center gap-2 mt-4">
-              <p>ইতিমধ্যেই অ্যাকাউন্ট আছে?</p>
+              <p>Already have an account?</p>
               <Link
                 href={`/login?callbackUrl=${encodeURIComponent(pathname || "/")}`}
                 className="text-primary font-semibold"
               >
-                লগইন করুন
+                Login
               </Link>
             </div>
           </div>

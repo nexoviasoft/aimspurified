@@ -34,12 +34,12 @@ export default function LoginForm() {
     setLoading(true);
 
     if (!/\S+@\S+\.\S+/.test(email)) {
-      toast.error("অনুগ্রহ করে সঠিক ইমেইল লিখুন");
+      toast.error("Please enter a valid email");
       setLoading(false);
       return;
     }
     if (!password || password.length < 6) {
-      toast.error("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে");
+      toast.error("Password must be at least 6 characters");
       setLoading(false);
       return;
     }
@@ -49,8 +49,8 @@ export default function LoginForm() {
     if (!result.success) {
       const errorMessage =
         result.error === "Invalid credentials"
-          ? "ইমেইল বা পাসওয়ার্ড সঠিক নয়"
-          : result.error || "ইমেইল বা পাসওয়ার্ড সঠিক নয়";
+          ? "Invalid email or password"
+          : result.error || "Invalid email or password";
       toast.error(errorMessage);
       setLoading(false);
     } else {
@@ -68,13 +68,13 @@ export default function LoginForm() {
             <div className="px-6 pt-6 text-center">
               <div className="inline-block mb-3">
                 <span className="text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary">
-                  স্বাগতম
+                  Welcome
                 </span>
               </div>
-              <h2 className="text-3xl font-black text-primary">লগইন</h2>
+              <h2 className="text-3xl font-black text-primary">Login</h2>
               {callBackURL && (
                 <p className="text-sm text-gray-600 mt-2">
-                  লগইন সফল হলে আপনাকে নেওয়া হবে: {callBackURL}
+                  Upon successful login, you will be redirected to: {callBackURL}
                 </p>
               )}
             </div>
@@ -87,7 +87,7 @@ export default function LoginForm() {
                   </span>
                   <Input
                     type="email"
-                    placeholder="ইমেইল"
+                    placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                     style={{ paddingLeft: "34px" }}
                   />
@@ -98,7 +98,7 @@ export default function LoginForm() {
                   </span>
                   <Input
                     type={showPassword ? "text" : "password"}
-                    placeholder="পাসওয়ার্ড"
+                    placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     style={{ paddingLeft: "34px", paddingRight: "40px" }}
                   />
@@ -114,13 +114,13 @@ export default function LoginForm() {
                 <div className="flex items-center justify-between">
                   <label className="inline-flex items-center gap-2 text-sm text-gray-700">
                     <input type="checkbox" className="accent-primary" />
-                    মনে রাখুন
+                    Remember me
                   </label>
                   <Link
                     href="/forgot-password"
                     className="text-primary text-sm"
                   >
-                    পাসওয়ার্ড ভুলে গেছেন?
+                    Forgot Password?
                   </Link>
                 </div>
                 <button
@@ -128,14 +128,14 @@ export default function LoginForm() {
                   type="submit"
                   disabled={!canSubmit}
                 >
-                  {loading ? "লগইন হচ্ছে..." : "লগইন"}
+                  {loading ? "Logging in..." : "Login"}
                 </button>
               </form>
 
               <div className="flex items-center justify-center gap-2 mt-4">
-                <p>অ্যাকাউন্ট নেই?</p>
+                <p>Don't have an account?</p>
                 <Link href="/register" className="text-primary font-semibold">
-                  রেজিস্টার করুন
+                  Register Now
                 </Link>
               </div>
             </div>

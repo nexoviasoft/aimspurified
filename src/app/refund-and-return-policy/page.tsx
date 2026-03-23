@@ -69,15 +69,13 @@ const RefundPolicyPage = () => {
     <main className="max-w-5xl mx-auto sm:px-5 px-3 py-10 space-y-10">
       <header className="space-y-3 text-center md:text-left">
         <span className="inline-block text-xs font-bold tracking-widest text-white px-4 py-2 rounded-full bg-primary mb-2">
-          রিফান্ড ও রিটার্ন পলিসি
+          Refund & Return Policy
         </span>
         <h1 className="text-2xl md:text-3xl font-semibold text-primary">
-          কবে, কীভাবে এবং কোন শর্তে রিফান্ড পাবেন
+          When, how and under what conditions you will get a refund
         </h1>
         <p className="text-sm md:text-base text-gray-600 max-w-2xl">
-          আমাদের লক্ষ্য হলো সহজ, পরিষ্কার এবং ন্যায্য রিফান্ড ও রিটার্ন পলিসি
-          অনুসরণ করা, যাতে আপনি নিশ্চিন্তে অর্ডার করতে পারেন। নিচে পুরো
-          প্রক্রিয়া এবং শর্তগুলো ধাপে ধাপে ব্যাখ্যা করা হলো।
+          Our goal is to follow a simple, clear, and fair refund and return policy so that you can order with confidence. Below are the steps and conditions explained step by step.
         </p>
       </header>
 
@@ -87,48 +85,44 @@ const RefundPolicyPage = () => {
             <FiClock />
           </div>
           <p className="text-xs font-semibold text-gray-900">
-            রিফান্ড টাইমফ্রেম
+            Refund Timeframe
           </p>
           <p className="text-xs text-[10px] text-gray-600">
-            প্রডাক্ট ডেলিভারির পর সাধারণত ৭–১০ কর্মদিবসের মধ্যে রিফান্ড
-            প্রক্রিয়াজাত করা হয়।
+            Refunds are processed usually within 7-10 working days after product delivery.
           </p>
         </div>
         <div className="rounded-2xl bg-white border border-gray-200 p-4 flex flex-col gap-1">
           <div className="text-primary sm:text-xl text-lgl">
             <FiRefreshCw />
           </div>
-          <p className="text-xs font-semibold text-gray-900">রিটার্ন উইন্ডো</p>
+          <p className="text-xs font-semibold text-gray-900">Return Window</p>
           <p className="text-xs text-[10px] text-gray-600">
-            ডেলিভারির পর নির্দিষ্ট সময়ের (যেমন ৩–৭ দিন) মধ্যে রিটার্ন রিকোয়েস্ট
-            করতে হবে।
+            Return request must be made within a specified period (e.g., 3-7 days) after delivery.
           </p>
         </div>
         <div className="rounded-2xl bg-white border border-gray-200 p-4 flex flex-col gap-1">
           <div className="text-green-500 sm:text-xl text-lg">
             <FiCheckCircle />
           </div>
-          <p className="text-xs font-semibold text-gray-900">এপ্রুভড কন্ডিশন</p>
+          <p className="text-xs font-semibold text-gray-900">Approved Conditions</p>
           <p className="text-xs text-[10px] text-gray-600">
-            ভুল প্রডাক্ট, ডিফেক্টিভ বা ড্যামেজড পণ্য হলে রিফান্ড/রিপ্লেসমেন্ট
-            প্রযোজ্য।
+            Refund/replacement applies to wrong, defective, or damaged products.
           </p>
         </div>
         <div className="rounded-2xl bg-white border border-gray-200 p-4 flex flex-col gap-1">
           <div className="text-gray-600 sm:text-xl text-lg">
             <FiXCircle />
           </div>
-          <p className="text-xs font-semibold text-gray-900">নন‑রিফান্ডেবল</p>
+          <p className="text-xs font-semibold text-gray-900">Non-refundable</p>
           <p className="sm:text-xs text-[10px] text-gray-600">
-            কিছু ক্যাটাগরির পণ্য রিফান্ডের আওতায় পড়ে না (নিচে বিস্তারিত
-            দেখুন)।
+            Some categories of products are not eligible for refund (see details below).
           </p>
         </div>
       </section>
 
       <section className="rounded-2xl bg-white border border-gray-200 px-6 py-8 md:px-8 md:py-9 shadow-sm space-y-8 text-gray-800">
         {isLoading && !policyContent && (
-          <p className="text-sm text-gray-500">রিফান্ড পলিসি লোড হচ্ছে...</p>
+          <p className="text-sm text-gray-500">Loading refund policy...</p>
         )}
 
         {policyContent ? (
@@ -140,142 +134,162 @@ const RefundPolicyPage = () => {
         ) : (
           <article className="prose max-w-none prose-sm sm:prose-base text-gray-800 flex flex-col gap-4">
           <section>
-            <h2>১. রিটার্ন করার সময়সীমা (Return Window)</h2>
+            <h2>1. Return Window</h2>
             <p>
-              সাধারণত প্রডাক্ট ডেলিভারি নেওয়ার পর{" "}
-              <strong>৩–৭ কর্মদিবসের</strong> মধ্যে আপনি রিটার্ন বা রিফান্ডের
-              জন্য আবেদন করতে পারবেন (ব্যবসায়িক নীতিমালা অনুযায়ী এই সময়সীমা
-              পরিবর্তন হতে পারে)। নির্দিষ্ট সময়ের পর করা রিকোয়েস্ট সাধারণত
-              গ্রহণ করা হয় না, যদি না বিশেষ কোনো পরিস্থিতি থাকে।
+              Generally, after receiving product delivery, you can apply for a return or refund within{" "}
+              <strong>3-7 working days</strong> (this timeframe may change according to business policy). Requests made after the specified time are usually not accepted unless there are special circumstances.
             </p>
             <ul>
-              <li>ডেলিভারি তারিখ থেকে কাউন্ট শুরু হবে।</li>
-              <li>
-                প্রয়োজন হলে ডেলিভারি স্লিপ/মেসেজ প্রমাণ হিসেবে দেখাতে হতে পারে।
-              </li>
-              <li>
-                টাইমফ্রেম শেষ হওয়ার আগে সাপোর্ট টিমের সাথে যোগাযোগ করতে হবে।
-              </li>
+              <li>The count starts from the delivery date.</li>
+              <li>If necessary, the delivery slip/message may need to be shown as proof.</li>
+              <li>You must contact the support team before the timeframe ends.</li>
             </ul>
           </section>
 
           <section>
-            <h2>২. কোন কোন ক্ষেত্রে রিফান্ড/রিপ্লেসমেন্ট প্রযোজ্য</h2>
+            <h2>2. Under what conditions is a refund/replacement applicable?</h2>
             <p>
-              নিচের পরিস্থিতিগুলোর যেকোনো একটিতে আপনি রিফান্ড বা রিপ্লেসমেন্ট
-              চাইতে পারেন:
+              You can request a refund or replacement in any of the following situations:
             </p>
             <ul>
-              <li>ভুল প্রডাক্ট পাওয়া (আপনার অর্ডারের সাথে মিলে না)।</li>
-              <li>প্রডাক্ট ড্যামেজড বা ডিফেক্টিভ অবস্থায় পাওয়া।</li>
-              <li>অর্ডার করা সাইজ/ভ্যারিয়েন্টের পরিবর্তে অন্য কিছু পাওয়া।</li>
-              <li>ডেলিভারির আগেই অর্ডার ক্যানসেল রিকোয়েস্ট এপ্রুভ হওয়া।</li>
+              <li>Receiving the wrong product (does not match your order).</li>
+              <li>Receiving a damaged or defective product.</li>
+              <li>Receiving something other than the ordered size/variant.</li>
+              <li>Order cancellation request being approved before delivery.</li>
             </ul>
             <p>
-              সব ক্ষেত্রে আমরা আগে প্রডাক্ট রিপ্লেসমেন্ট অফার করতে পারি; যদি
-              রিপ্লেসমেন্ট সম্ভব না হয়, তখন রিফান্ড প্রসেস করা হবে।
+              In all cases, we may offer a product replacement first; if replacement is not possible, a refund will be processed.
             </p>
           </section>
 
           <section>
-            <h2>৩. কোন কোন ক্ষেত্রে রিফান্ড প্রযোজ্য নয়</h2>
+            <h2>3. Circumstances where a refund is not applicable</h2>
             <p>
-              কিছু ক্যাটাগরির পণ্য কনজিউমার সেফটি ও নীতিমালার কারণে রিফান্ড বা
-              রিটার্নের আওতায় থাকে না:
+              Some categories of products are not eligible for refunds or returns due to consumer safety and policies:
             </p>
             <ul>
-              <li>ব্যবহৃত বা স্পষ্টভাবে ক্ষতিগ্রস্ত করা পণ্য।</li>
-              <li>ট্যাগ/সিল/প্যাকেজিং ইচ্ছাকৃতভাবে নষ্ট করা হয়েছে এমন পণ্য।</li>
-              <li>
-                ইন্টিমেট, পার্সোনাল কেয়ার বা হাইজিন পণ্য (নীতিমালা অনুযায়ী)।
-              </li>
-              <li>ডিজিটাল প্রডাক্ট বা ই‑সার্ভিস যা একবার ডেলিভার্ড হয়েছে।</li>
-              <li>“ফাইনাল সেল” বা নন‑রিফান্ডেবল হিসেবে মার্ক করা অফার পণ্য।</li>
+              <li>Products that have been used or clearly damaged.</li>
+              <li>Products whose tags/seals/packaging have been intentionally destroyed.</li>
+              <li>Intimate, personal care, or hygiene products (as per policy).</li>
+              <li>Digital products or e-services that have already been delivered.</li>
+              <li>Offer products marked as "Final Sale" or non-refundable.</li>
             </ul>
           </section>
 
           <section>
-            <h2>৪. রিটার্নের শর্ত ও প্রডাক্টের অবস্থা</h2>
+            <h2>4. Return conditions and product state</h2>
             <p>
-              রিটার্ন গ্রহণ করার জন্য সাধারণত নিচের কন্ডিশনগুলো পূরণ করতে হয়:
+              To accept a return, the following conditions must usually be met:
             </p>
             <ul>
-              <li>প্রডাক্ট যতটা সম্ভব মূল অবস্থায় রাখতে হবে।</li>
-              <li>
-                অরিজিনাল বক্স, ট্যাগ, ম্যানুয়াল এবং এক্সেসরিজ থাকলে সাথে দিতে
-                হবে।
-              </li>
-              <li>অর্ডার ইনভয়েস/স্লিপের কপি দিতে হতে পারে।</li>
-              <li>
-                ফ্রি গিফট থাকলে প্রযোজ্য ক্ষেত্রে সেটাও ফেরত দিতে হতে পারে।
-              </li>
+              <li>The product must be kept in its original condition as much as possible.</li>
+              <li>Original box, tags, manuals, and accessories must be returned along with the product.</li>
+              <li>A copy of the order invoice/slip may need to be provided.</li>
+              <li>If there are free gifts, they may also need to be returned where applicable.</li>
             </ul>
           </section>
 
           <section>
-            <h2>৫. রিফান্ড প্রক্রিয়া ও কতদিনে টাকা পাবেন</h2>
+            <h2>5. Refund process and when you will receive the money</h2>
             <p>
-              রিটার্ন প্রডাক্ট আমাদের টিম বা পার্টনার দ্বারা চেক সম্পন্ন হওয়ার
-              পর রিফান্ড প্রসেস শুরু হয়।
+              The refund process begins after the returned product has been checked by our team or partner.
             </p>
             <ul>
-              <li>
-                ক্যাশ অন ডেলিভারি অর্ডারের ক্ষেত্রে ব্যাংক/মোবাইল ব্যাংকিং এ
-                রিফান্ড দেওয়া হতে পারে।
-              </li>
-              <li>অনলাইন পেমেন্ট হলে সাধারণত একই পেমেন্ট মেথডে রিফান্ড যায়।</li>
-              <li>
-                রিফান্ড সম্পূর্ণ হতে সাধারণত ৭–১০ কর্মদিবস সময় লাগতে পারে।
-              </li>
-              <li>
-                ব্যাংক/পেমেন্ট গেটওয়ের প্রসেসিং ডিলে আমাদের নিয়ন্ত্রণে থাকে না।
-              </li>
+              <li>For Cash on Delivery orders, refunds may be given to a bank/mobile banking account.</li>
+              <li>For online payments, refunds are usually processed to the same payment method.</li>
+              <li>It can generally take 7-10 working days for the refund to be completed.</li>
+              <li>Processing delays by the bank/payment gateway are not under our control.</li>
             </ul>
           </section>
 
           <section>
-            <h2>৬. রিটার্ন শিপিং চার্জ</h2>
+            <h2>6. Return shipping charges</h2>
             <p>
-              রিটার্ন শিপিং চার্জ কে বহন করবে তা কন্ডিশন অনুযায়ী ভিন্ন হতে
-              পারে:
+              Who bears the return shipping charges may vary according to the condition:
             </p>
             <ul>
-              <li>
-                ভুল প্রডাক্ট বা ড্যামেজড পণ্য হলে সাধারণত শিপিং চার্জ আমরা বহন
-                করি।
-              </li>
-              <li>
-                মাইন্ড‑চেঞ্জ বা পছন্দ না হওয়ার কারণে রিটার্ন হলে কেস‑বাই‑কেস
-                নীতিমালা প্রযোজ্য।
-              </li>
-              <li>ডিটেইল্ড শিপিং চার্জ নীতি সময় সময় আপডেট হতে পারে।</li>
+              <li>For wrong or damaged products, we usually bear the shipping charges.</li>
+              <li>If the return is due to a change of mind or disliking the product, a case-by-case policy applies.</li>
+              <li>Detailed shipping charge policies may be updated from time to time.</li>
             </ul>
           </section>
 
           <section>
-            <h2>৭. পার্শিয়াল রিফান্ড ও অ্যাডজাস্টমেন্ট</h2>
+            <h2>7. Partial refunds and adjustments</h2>
             <p>
-              কিছু ক্ষেত্রে পুরো টাকার পরিবর্তে পার্শিয়াল রিফান্ড বা
-              অ্যাডজাস্টমেন্ট হতে পারে:
+              In some cases, a partial refund or adjustment may be made instead of a full refund:
             </p>
             <ul>
-              <li>
-                বক্স/অ্যাক্সেসরিজ না থাকলে ভ্যালু থেকে কিছুটা কেটে নেওয়া হতে
-                পারে।
-              </li>
-              <li>
-                প্রডাক্ট আংশিক ব্যবহার করা হলে পার্শিয়াল রিফান্ড প্রযোজ্য হতে
-                পারে।
-              </li>
-              <li>
-                ফিউচার অর্ডারে ভাউচার/ক্রেডিট হিসেবে অ্যাডজাস্ট করার সুযোগ থাকতে
-                পারে।
-              </li>
+              <li>If the box/accessories are missing, some value may be deducted.</li>
+              <li>If the product has been partially used, a partial refund may apply.</li>
+              <li>There may be an opportunity to adjust the amount as a voucher/credit for future orders.</li>
             </ul>
           </section>
 
           <section>
-            <h2>৮. প্রডাক্ট টাইপ অনুযায়ী রিফান্ড উদাহরণ</h2>
+            <h2>8. Refund examples by product type</h2>
+            <p>
+              Refund policies may vary slightly in practice for different types of products. Below are some practical examples based on common product types:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mt-4">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <p className="text-xs font-semibold text-gray-900 mb-1">
+                  Electronics / Gadgets
+                </p>
+                <ul className="text-xs text-gray-700 list-disc list-inside space-y-1">
+                  <li>Refund/replace if dead/defective within a short time after delivery.</li>
+                  <li>Box, charger, cable, warranty card, etc. must be provided if available.</li>
+                  <li>Different policies may apply to earphones/headphones used on the body.</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <p className="text-xs font-semibold text-gray-900 mb-1">
+                  Fashion / Clothing / Shoes
+                </p>
+                <ul className="text-xs text-gray-700 list-disc list-inside space-y-1">
+                  <li>Returns are possible for size issues if the tag is uncut and the item is unused.</li>
+                  <li>Refunds may not apply if there are clear stains, damage, or signs of use.</li>
+                  <li>Limited edition or customized items may have a non-refundable policy.</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <p className="text-xs font-semibold text-gray-900 mb-1">
+                  Beauty / Cosmetics / Hygiene
+                </p>
+                <ul className="text-xs text-gray-700 list-disc list-inside space-y-1">
+                  <li>Returns are not usually accepted if the seal/security seal is broken.</li>
+                  <li>Damage or leakage during delivery must be reported promptly with evidence.</li>
+                  <li>Personal care products may have a strict non-refundable policy according to health regulations.</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <p className="text-xs font-semibold text-gray-900 mb-1">
+                  Home & Decor / Others
+                </p>
+                <ul className="text-xs text-gray-700 list-disc list-inside space-y-1">
+                  <li>Check breakable items immediately upon delivery and report issues right away.</li>
+                  <li>Advance payments for custom-made or pre-ordered items may be partially non-refundable.</li>
+                  <li>Additional category-specific conditions may be mentioned in the product details as needed.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>9. Policy changes and updates</h2>
+            <p>
+              Our refund and return policy may be updated from time to time due to legal updates, partner changes, or service modifications. In case of significant changes, we will notify you through the website, notifications, or any other means.
+            </p>
+          </section>
+
+          <section>
+            <h2>10. Need help?</h2>
+            <p>
+              If you have any questions, complaints, or special circumstances regarding refunds or returns, please contact our Customer Support team directly. We try to handle every case fairly and quickly.
+            </p>
+          </section>
+        </article>
+প্রডাক্ট টাইপ অনুযায়ী রিফান্ড উদাহরণ</h2>
             <p>
               বিভিন্ন ধরনের পণ্যের ক্ষেত্রে রিফান্ড নীতিমালা বাস্তবে কিছুটা
               ভিন্ন হতে পারে। নিচে কিছু সাধারণ প্রডাক্ট টাইপ অনুযায়ী বাস্তব
