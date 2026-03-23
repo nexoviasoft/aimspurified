@@ -26,8 +26,8 @@ const Input = styled.input`
     border-color 0.2s ease,
     box-shadow 0.2s ease;
   &:focus {
-    border-color: #000000;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    border-color: #0B7A3F;
+    box-shadow: 0 0 0 3px rgba(11, 122, 63, 0.1);
   }
 `;
 export default function RegisterPage() {

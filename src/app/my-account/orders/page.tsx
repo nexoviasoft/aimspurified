@@ -283,7 +283,7 @@ const Orders = () => {
   if (orders.length === 0) {
     return (
       <div className="w-full flex flex-col gap-5">
-        <div className="rounded-2xl bg-black text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+        <div className="rounded-2xl bg-primary text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="space-y-1.5">
               <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
@@ -327,7 +327,7 @@ const Orders = () => {
   return (
     <>
       <div className="w-full flex flex-col gap-5">
-        <div className="rounded-2xl bg-black text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+        <div className="rounded-2xl bg-primary text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="space-y-1.5">
               <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
@@ -369,7 +369,7 @@ const Orders = () => {
             <button
               type="submit"
               disabled={trackingLoading || !trackingId.trim()}
-              className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-black hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-primary hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
             >
               {trackingLoading ? "ট্র্যাক করা হচ্ছে..." : "অর্ডার ট্র্যাক করুন"}
             </button>
@@ -516,7 +516,7 @@ const Orders = () => {
                         type="button"
                         onClick={() => fetchTrackingByOrder(order)}
                         disabled={trackingLoadingOrderId === order.id}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-gray-100 px-3 py-1.5 text-xs sm:text-sm font-medium text-black hover:bg-gray-200 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-gray-100 px-3 py-1.5 text-xs sm:text-sm font-medium text-primary hover:bg-gray-200 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                       >
                         <FiTruck size={14} />
                         {trackingLoadingOrderId === order.id
@@ -534,7 +534,7 @@ const Orders = () => {
                     <button
                       onClick={() => showCancelModal(order.id)}
                       disabled={cancellingOrderId === order.id}
-                      className="px-4 py-2 rounded-full bg-black text-white text-xs sm:text-sm font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-2 rounded-full bg-primary text-white text-xs sm:text-sm font-medium hover:bg-primaryDark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {cancellingOrderId === order.id
                         ? "বাতিল করা হচ্ছে..."
@@ -589,7 +589,7 @@ const Orders = () => {
                         trackingDataByOrderId[order.id].statusHistory!.length >
                           0 && (
                           <div className="mt-3 border-t border-gray-200 pt-3">
-                            <p className="text-[10px] font-semibold uppercase tracking-wide text-black mb-2">
+                            <p className="text-[10px] font-semibold uppercase tracking-wide text-primary mb-2">
                               স্ট্যাটাস হিস্টোরি
                             </p>
                             <ul className="space-y-1.5">

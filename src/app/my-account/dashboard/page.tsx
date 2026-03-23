@@ -159,7 +159,7 @@ export default function Dashboard() {
       <section className="w-full flex justify-center items-center min-h-[320px]">
         <div className="max-w-md w-full text-center space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1 border border-gray-200">
-            <span className="h-2 w-2 rounded-full bg-black animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span className="text-[11px] font-medium text-gray-700">
               Loading your dashboard
             </span>
@@ -202,7 +202,7 @@ export default function Dashboard() {
 
   return (
     <div className="w-full flex flex-col gap-6">
-      <div className="rounded-2xl bg-black text-white shadow-md px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6">
+      <div className="rounded-2xl bg-primary text-white shadow-md px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="space-y-2">
             <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
@@ -263,7 +263,7 @@ export default function Dashboard() {
             </p>
             <Link
               href="/my-account/orders"
-              className="mt-2 inline-flex text-xs font-medium text-black hover:text-gray-700"
+              className="mt-2 inline-flex text-xs font-medium text-primary hover:text-gray-700"
             >
               অর্ডার দেখুন
             </Link>

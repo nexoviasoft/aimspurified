@@ -45,7 +45,7 @@ const FlashSaleBanner = async () => {
 
   return (
     <Link href="/flashSell" className="block">
-      <div className="bg-black text-white py-3 px-4 relative overflow-hidden">
+      <div className="bg-primary text-white py-3 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-white/5"></div>
         <div className="relative z-10 flex items-center justify-between gap-3 max-w-7xl mx-auto">
           <div className="flex items-center gap-3">

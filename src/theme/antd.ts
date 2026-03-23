@@ -2,7 +2,7 @@ import { ThemeConfig } from "antd";
 
 const theme: ThemeConfig = {
   token: {
-    colorPrimary: "#000000",
+    colorPrimary: "#0B7A3F",
     borderRadius: 3,
     fontFamily: "var(--font-baiJamjuree), var(--font-hindSiliguri)",
   },

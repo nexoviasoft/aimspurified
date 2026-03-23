@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    /* Black and white theme */
-    --primary: 0, 0%, 0%; /* #000000 */
-    --secondary: 0, 0%, 50%; /* #808080 */
+    /* Green and black theme */
+    --primary: 148, 83%, 26%; /* #0B7A3F */
+    --secondary: 0, 0%, 0%; /* #000000 */
   }
 }
 
@@ -14,7 +14,7 @@
 .btn-submit,
 button[type="submit"],
 .submit-btn {
-  background-color: #000000;
+  background-color: #0B7A3F;
   color: #ffffff;
   padding: 12px 16px;
   border-radius: 0;
@@ -31,7 +31,7 @@ button[type="submit"],
 .btn-submit:hover,
 button[type="submit"]:hover,
 .submit-btn:hover {
-  background-color: #333333;
+  background-color: #096132;
 }
 
 .btn-cancel,
@@ -95,10 +95,10 @@ button.btn-rounded,
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #0B7A3F;
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #096132;
 }

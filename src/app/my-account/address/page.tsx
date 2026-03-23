@@ -115,7 +115,7 @@ export default function Address() {
 
   return (
     <div className="w-full flex flex-col gap-5">
-      <div className="rounded-2xl bg-black text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+      <div className="rounded-2xl bg-primary text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-1.5">
             <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gray-100/90">

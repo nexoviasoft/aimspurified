@@ -114,7 +114,7 @@ const Autocomplete = () => {
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        className="w-full py-[10px] px-[8px] border-[1.5px] border-gray-300  focus:outline-none placeholder:text-gray-500 focus:border-[#000000]"
+        className="w-full py-[10px] px-[8px] border-[1.5px] border-gray-300  focus:outline-none placeholder:text-gray-500 focus:border-primary"
         placeholder="জেলা *"
       />
       {isOpen && (

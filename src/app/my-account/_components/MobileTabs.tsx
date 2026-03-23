@@ -31,7 +31,7 @@ const MobileTabs = () => {
             className={cn(
               "flex flex-col items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 text-center h-full",
               path === item.link
-                ? "bg-black text-white shadow-md"
+                ? "bg-primary text-white shadow-md"
                 : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-100"
             )}
           >

@@ -15,22 +15,22 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fiberace - T-Shirt Brand",
-    template: "%s | Fiberace",
+    default: "AimsPurified",
+    template: "%s | AimsPurified",
   },
-  description: "FreeStyle - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
-  keywords: ["t-shirt", "menswear", "apparel", "FreeStyle", "Fiberace", "fashion", "clothing"],
-  authors: [{ name: "Fiberace" }],
-  creator: "Fiberace",
+  description: "AimsPurified Shop quality products.",
+  keywords: ["AimsPurified", "mangshomoshla", "boroi achar", "biscute", "jhalmuri"],
+  authors: [{ name: "AimsPurified" }],
+  creator: "AimsPurified",
   openGraph: {
-    title: "Fiberace - T-Shirt Brand",
-    description: "Fiberace - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
+    title: "AimsPurified",
+    description: "AimsPurified Shop quality products.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fiberace - T-Shirt Brand",
-    description: "Fiberace - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
+    title: "AimsPurified",
+    description: "AimsPurified  Shop quality products.",
   },
   robots: {
     index: true,
