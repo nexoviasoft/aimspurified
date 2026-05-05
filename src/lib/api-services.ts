@@ -739,6 +739,36 @@ export async function createOrder(
         : responseData;
 }
 
+export async function createIncompleteOrder(
+    payload: {
+        customerId?: number;
+        customerName?: string;
+        customerPhone?: string;
+        customerEmail?: string;
+        customerAddress?: string;
+        shippingAddress?: string;
+        paymentMethod?: "DIRECT" | "COD";
+        deliveryType?: "INSIDEDHAKA" | "OUTSIDEDHAKA";
+        orderInfo?: string;
+        items: { productId: number; quantity: number }[];
+    },
+    companyId?: string,
+    orderId?: number,
+): Promise<unknown> {
+    const companyIdParam = companyId || API_CONFIG.companyId;
+    const params = new URLSearchParams();
+    if (companyIdParam) params.append("companyId", companyIdParam);
+    if (orderId) params.append("orderId", String(orderId));
+    const response = await axios.post(
+        getApiUrl(`/orders/incomplete?${params.toString()}`),
+        payload,
+    );
+    const responseData: ApiResponse<unknown> | unknown = response.data;
+    return (responseData && typeof responseData === "object" && "data" in responseData)
+        ? (responseData as ApiResponse<unknown>).data
+        : responseData;
+}
+
 /**
  * For guest accounts created implicitly via checkout, allow them to set an initial password.
  */

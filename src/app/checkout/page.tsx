@@ -9,6 +9,7 @@ import CustomerInfo from "./_components/CustomerInfo";
 import toast from "react-hot-toast";
 import {
   createOrder,
+  createIncompleteOrder,
   getPublicPromocodes,
   PromoCode,
   getProduct,
@@ -71,6 +72,11 @@ const CheckoutContent = () => {
     string | null
   >(null);
   const hasAppliedInitialPromo = useRef(false);
+  const autosaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastSavedSignatureRef = useRef<string>("");
+  const [incompleteOrderId, setIncompleteOrderId] = useState<number | undefined>(
+    undefined,
+  );
 
   const getPromoProductIds = (p: PromoCode): number[] => {
     if (!Array.isArray((p as any).productIds)) return [];
@@ -82,6 +88,14 @@ const CheckoutContent = () => {
   useEffect(() => {
     refetch();
   }, [refetch]);
+
+  useEffect(() => {
+    const draftOrderIdFromQuery = searchParams.get("orderId");
+    const parsed = draftOrderIdFromQuery ? Number(draftOrderIdFromQuery) : NaN;
+    if (Number.isFinite(parsed) && parsed > 0) {
+      setIncompleteOrderId(parsed);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const size = searchParams.get("tShirtSize");
@@ -285,6 +299,91 @@ const CheckoutContent = () => {
   const shippingCharge = 0;
   const total = Math.max(subtotal - discount, 0);
   const grandTotal = total + shippingCharge;
+
+  useEffect(() => {
+    const companyId =
+      searchParams.get("companyId") ||
+      userSession?.companyId ||
+      API_CONFIG.companyId;
+
+    if (!companyId || !items.length) return;
+
+    const hasAnyCustomerData = [name, phone, email, address, district].some(
+      (v) => (v || "").trim().length > 0,
+    );
+    if (!hasAnyCustomerData) return;
+
+    const combinedAddress = [district.trim(), address.trim()]
+      .filter(Boolean)
+      .join(", ");
+    const payload = {
+      customerId: userSession?.userId,
+      customerName: name || undefined,
+      customerPhone: phone || undefined,
+      customerEmail: email || undefined,
+      customerAddress: combinedAddress || undefined,
+      shippingAddress: combinedAddress || undefined,
+      paymentMethod: paymentMethod === "cod" ? ("COD" as const) : ("DIRECT" as const),
+      deliveryType: deliveryType
+        ? deliveryType === "inside"
+          ? ("INSIDEDHAKA" as const)
+          : ("OUTSIDEDHAKA" as const)
+        : undefined,
+      orderInfo: tShirtSize ? `tShirtSize ${tShirtSize}` : undefined,
+      items: items.map((i) => ({
+        productId: i.product.id,
+        quantity: i.quantity,
+      })),
+    };
+
+    const signature = JSON.stringify({
+      companyId,
+      orderId: incompleteOrderId,
+      payload,
+    });
+    if (lastSavedSignatureRef.current === signature) return;
+
+    if (autosaveTimerRef.current) {
+      clearTimeout(autosaveTimerRef.current);
+    }
+
+    autosaveTimerRef.current = setTimeout(async () => {
+      try {
+        const res = (await createIncompleteOrder(
+          payload,
+          companyId,
+          incompleteOrderId,
+        )) as any;
+        const savedId: number | undefined = res?.id;
+        if (savedId && savedId !== incompleteOrderId) {
+          setIncompleteOrderId(savedId);
+        }
+        lastSavedSignatureRef.current = signature;
+      } catch (err) {
+        console.error("Failed to autosave incomplete order:", err);
+      }
+    }, 600);
+
+    return () => {
+      if (autosaveTimerRef.current) {
+        clearTimeout(autosaveTimerRef.current);
+      }
+    };
+  }, [
+    searchParams,
+    userSession?.companyId,
+    userSession?.userId,
+    items,
+    name,
+    phone,
+    email,
+    address,
+    district,
+    paymentMethod,
+    deliveryType,
+    tShirtSize,
+    incompleteOrderId,
+  ]);
 
   const handleQueryItemQuantityChange = async (
     item: {
