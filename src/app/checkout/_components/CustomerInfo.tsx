@@ -32,8 +32,6 @@ const CustomerInfo = ({
   setAddress,
   district,
   setDistrict,
-  deliveryType,
-  setDeliveryType,
   paymentMethod,
   setPaymentMethod,
   onSubmit,
@@ -55,52 +53,67 @@ const CustomerInfo = ({
           </h1>
           <div className="flex flex-col gap-3">
             <div className="grid min-[550px]:grid-cols-2 grid-cols-1 gap-3">
-              <input
-                className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                type="email"
-                placeholder="Email (optional)"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                type="text"
-                placeholder="Full Name *"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-gray-600">Email (optional)</span>
+                <input
+                  className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-gray-600">Full Name *</span>
+                <input
+                  className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </label>
             </div>
             <div className="grid min-[550px]:grid-cols-2 grid-cols-1 gap-3">
-              <input
-                className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                type="text"
-                placeholder="Area / City"
-                value={district || ""}
-                onChange={(e) => setDistrict?.(e.target.value)}
-              />
-              <input
-                className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                type="text"
-                placeholder="Full Address *"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-              />
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-gray-600">Area / City</span>
+                <input
+                  className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
+                  type="text"
+                  placeholder="Enter your area or city"
+                  value={district || ""}
+                  onChange={(e) => setDistrict?.(e.target.value)}
+                />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-gray-600">Full Address *</span>
+                <input
+                  className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
+                  type="text"
+                  placeholder="Enter your full address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </label>
             </div>
             <div className="grid grid-cols-1">
-              <input
-                className="border border-gray-200 outline-none  py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                type="tel"
-                inputMode="numeric"
-                placeholder="Phone Number *"
-                value={phone}
-                onChange={(e) => {
-                  const onlyDigits = e.target.value.replace(/\D/g, "");
-                  setPhone(onlyDigits);
-                }}
-                required
-              />
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-gray-600">Phone Number *</span>
+                <input
+                  className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black placeholder:text-gray-400 bg-gray-50/30 focus:bg-white transition-all rounded-lg"
+                  type="tel"
+                  inputMode="numeric"
+                  placeholder="Enter phone number"
+                  value={phone}
+                  onChange={(e) => {
+                    const onlyDigits = e.target.value.replace(/\D/g, "");
+                    setPhone(onlyDigits);
+                  }}
+                  required
+                />
+              </label>
             </div>
           </div>
         </div>
@@ -110,23 +123,20 @@ const CustomerInfo = ({
         <div className="grid md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-3 border border-gray-100 bg-white p-4 shadow-sm rounded-lg">
             <h2 className="text-base font-bold text-gray-900 border-b border-gray-100 pb-2">
-              Delivery Type
+              Delivery Charge
             </h2>
             <div className="flex flex-col gap-2">
-              <select
-                className="border border-gray-200 outline-none py-2.5 px-3 text-sm focus:border-black bg-gray-50/30 focus:bg-white transition-all rounded-lg"
-                value={deliveryType || ""}
-                onChange={(e) =>
-                  setDeliveryType?.(e.target.value as "inside" | "outside")
-                }
-                required
-              >
-                <option value="" disabled>
-                  Select Delivery Type *
-                </option>
-                <option value="inside">Inside Dhaka (60৳)</option>
-                <option value="outside">Outside Dhaka (120৳)</option>
-              </select>
+              <label className="flex items-center gap-3 p-3 border border-primary bg-primary/5 rounded-lg cursor-default">
+                <input
+                  type="checkbox"
+                  checked
+                  readOnly
+                  className="accent-primary w-4 h-4"
+                />
+                <span className="text-sm font-medium text-gray-900">
+                  Delivery Charge Fee: Free
+                </span>
+              </label>
             </div>
           </div>
 

@@ -282,8 +282,7 @@ const CheckoutContent = () => {
     return Math.min(promo.discountValue, subtotal);
   }, [promo, subtotal]);
 
-  const shippingCharge =
-    deliveryType === "inside" ? 60 : deliveryType === "outside" ? 120 : 0;
+  const shippingCharge = 0;
   const total = Math.max(subtotal - discount, 0);
   const grandTotal = total + shippingCharge;
 
@@ -490,11 +489,6 @@ const CheckoutContent = () => {
       toast.error("Email is required");
       return;
     }
-    if (!deliveryType) {
-      toast.error("Select delivery type");
-      return;
-    }
-
     try {
       setOrderLoading(true);
 
@@ -519,8 +513,6 @@ const CheckoutContent = () => {
         customerEmail: email,
         customerAddress: combinedAddress,
         shippingAddress: combinedAddress,
-        deliveryType:
-          deliveryType === "inside" ? "INSIDEDHAKA" : "OUTSIDEDHAKA",
         paymentMethod: paymentMethod === "cod" ? "COD" : "DIRECT",
         orderInfo: tShirtSize ? `tShirtSize ${tShirtSize}` : undefined,
         items: items.map((i) => ({
@@ -528,6 +520,11 @@ const CheckoutContent = () => {
           quantity: i.quantity,
         })),
       };
+
+      if (deliveryType) {
+        payload.deliveryType =
+          deliveryType === "inside" ? "INSIDEDHAKA" : "OUTSIDEDHAKA";
+      }
 
       // If user is logged in, also attach customerId so backend links to their account
       if (userSession?.userId) {
